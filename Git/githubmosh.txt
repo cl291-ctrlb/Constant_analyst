@@ -1,0 +1,276 @@
+github mosh
+git is most popular version control system in the world
+record the changes made, in code in a specail data base called repository record changess what made in code kb aur kaise
+
+type of vcs
+centralised and distributed 
+centralised all team members connect to central sever to get latest copy of code and share code examples are microsoft team foundation and subversionproblem in this is single point of failure means if server go offline we cant collaborate 
+distributed - opposite of above  git and merculiar are the examples of it 
+
+why git 
+free 
+open source
+super fast
+scalable 
+cheap branching merging fast
+
+various use we can use it 
+command line
+vs code 
+other code editors
+graphical interface tools available in git website we can use especially for git use two most popular are  gitkraken mosh favourite and sourcetree 
+gitkraken integrates with other git cracking products such as a  get cracking boards for issue  tracking and git tracking timelines for project management its free for open source projects
+nut commercial k lia pay krna hoga annual fee
+sourcetree another option  free but only for window and mac not for linux
+ 
+reason to use command line
+gui tools have limitations
+gui tools not always available
+ use  tools both commandline and gui tools
+
+iske baad ki kuch partys delete hogya h (redo bc)
+windows abc\r\n(\n is line feed and other one is carriage return)
+mac mai alag hota 
+specify core.autocrlf otherwise give error abve code 
+git config --global core.autocrlf true(windows ) and for mac (input use )
+
+
+getting help
+
+cheat sheet in description
+
+usage of git (basics)
+1 creating snapshots
+initialising a repository
+mac k lia Zsh with Git plugin use and for windows posh-git use (optional toolsl)
+$ rm -rf .git (remove master)
+$ git init(intialise)
+
+git workflow
+commit like take a picture or save file
+only in git 
+staging area present here(or index)
+all types of editing  done here in staging
+git add file1 file2 (command use to add to stage area)
+after reviewing all the content we use git commit -m "Intial commit " (command)
+hmm jitne barr old files mai editing krenge to hume add commit use krna and commit again otherwise jo changes kia h to nhi apply or show hoga
+commit is like future proof saving 
+commit parts
+each commit have a 
+unique id
+messaes
+data
+time date 
+author 
+complete snapshot
+git compress the file not store duplicates 
+
+staging files
+? mosh k mai this mark shown but not in my os 
+? (means new files that are not tracked by git )
+red means not in staging area 
+aap space deke multiple files add kr skte ho
+$ git add *.txt (means pattern refers all files with txt extension )
+. (periods also use to add entire directory recursively be careful because some file we dont want to add which makes large size)
+ mosh mai master ka color change from green to yellow
+green means file staging area
+>> means append
+(here we add again) 
+
+commit changes
+"intialise commit." here we have to give detail information about problems
+ description 80 words se km hona chahiye
+line break is important between shor and long description
+ 886 insertions(+) (lines)
+ master color change here in mosh to green means working directory is clean
+
+
+commiting best pracitces
+commit should not too big or small
+commit often (not to be the 5 or 10 commit at a day)
+use word (fix the bug )
+(mosh course 5 hour on git advanced and intermediate with certification)
+
+
+skipping the staging area
+faq 
+do we always have to stage our changes before commit them
+answe is no
+color of msater in yellow now after the code working directory is dirty now
+add ki jagah use commit 
+-a -m and -am both are same
+
+
+removing files
+files in staging area
+delete k lia directory and staging area dono jagah se remove krna hoga this is write way to delete
+$ git rm file2.txt (command to remove from both stage and directory)
+
+renaming moving files
+mv means move (mv apply for both staging and directory)
+git ko track krne k lia we have to add
+remove or rename is 2 step operations first modify our direcrotory and then stage 2 type changes (addition and deletion)
+
+36:07
+ignoring files
+here git dont show that we have a new directory called logs because it is ignoring this
+$ mkdir bin (create new direcrtory)
+use upper   arrow
+(finally i got this after fixing many error 1 :40 pm ist 24 1 2025)
+redo here
+bin/ se barr barr commit nhi krna hoda after every time we compile our application
+modify bin file ($ echo helloworld > bin/app.bin)
+yha pe ek file1.js b aana chahiye tha but mereme 2 hi files($ git ls-files
+.gitignore
+bin/app.bin)
+ --[no-]cached   (using this remove only from index or staging area)
+fatal: not removing 'bin/' recursively without -r(solution is      -r                    allow recursive removal)
+delete properly ('bin/app.bin')
+github.com/github//gitignore(official website for templates for gitignore for vary languages)
+
+
+
+
+short status
+yha pe red mai "modified : file1.js " aana chahiye tha
+$ git status -s (yha pe agar modified hua hota to file1.js ka samne red mai M likha hota)
+?(left)?(right) file1.js
+?? file1.jsd
+?? file2.js
+left column mean staging area and right means working directory 
+A(added )  file1.js (mosh mai yha green mai M file1.js show hora )
+sayad mereme modified nhi show hua but add hogya h(further codes mai show hora h)
+
+
+
+viewing the staged and unstaged changes
+always review staging area before commit in repository 
+git status -s (only show files that have been affected )
+diff (show exact line  of codes we staged )
+terminal codes ko compare krne k lia visual tools used for best but you should also understand the terminal
+compare two files with same copy (a/file1.js(old one ) b/file1.js(new one ))
+index 0000000..a5e5544(index meta data)
+--- (changes in old copy )
++++(changes in new copy)
+@@ -0,0 +1,4 @@(header with information about what parts changed -0 info about old and +1,4  info for new )
+-0,0(zero se start and zero line  extracted )
++1,4(start from one and extract 4 line )
++sky(green means they are new lines)
++sky
++sky
++ocean
+if you want to see the changes in our working directory that are not staged yet 
+use git div wihtout any argument
+
+
+
+
+visual diff tools
+most popular are
+kdiff3 and p4merge (both are cross platform)
+winmerge (windows only )
+vscode (mosh use this in tutorial for other one we have to explore)
+hmmme git ko batana pdega ki ki onsa tool use kr rhe
+two config we have to set (one is tell git and other is lauch tool (vscode in our case))
+global setting apply to all repositories
+ --wait --diff (these are the arguements)
+ $LOCAL $REMOTE(these are place holder for old and new respectively )
+-e(edit our global config in our default editor(vscode))
+files open to ho hori h but  changes shi se nhi show hori h
+
+
+view the history
+main (mosh mai master h )is the main branch or line of work of git
+also called trunk
+head is refernce to current branch
+$ git log --oneline(short summary of comments)
+
+viewing a commit
+use when we want to see what exact commit happen
+we needs to specify the commit 
+two ways to do (one is unique identifier and two is head pointer )
+~ k badd how many steps you go back
+$ git show HEAD~1:.gitignore(latest version we commited)
+$ git ls-tree HEAD~1(show details of commit and changes have made)
+trees represent directories and blobs represent as files 
+git objects are 
+commits
+blobls 
+trees
+tags
+
+
+
+
+
+
+
+unstaging files
+undo the add operation
+?? (new untracked file )
+
+dicarding local changes
+$ git clean
+fatal: clean.requireForce is true and -f not given: refusing to clean(after this you cant restore )
+
+restoring a file to an earlier version
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
