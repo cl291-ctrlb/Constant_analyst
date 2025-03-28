@@ -1,0 +1,73 @@
+<!--stacking elements-->
+<html>
+    <head>
+        <title>
+            stacking elements dynamically
+        </title>
+        <script type="text/javascript">
+            var oldTop="v130";
+            function ForTop(newTop)
+            {
+                Top=document.getElementById(oldTop).style;
+                NEw=document.getElementById(newTop).style;
+                Top.zIndex="0"
+                New.zIndex="10"
+                oldTop=newTop;
+            }</script>
+            <style type="text/css">
+                .img1{position:absolute;top:10px;left:10;z-index:0;}    
+                .img2{position:absolute;top:85px;left:85px;z-index:0;}    
+                .img3{position:absolute;top:160px;left:160px;z-index:0;}    
+                .img4{position:absolute;top:235px0;left:235px;z-index:0;}    
+            </style>
+        </head>
+        <body>
+            <p>
+                <img class = ".img1" id="v130" src="Rose.jpg" alt="Rose"
+                noclick="ForTop('v130')"/>
+
+                <img class = ".img2" id="v160" src="Lily.jpg" alt="Lily"
+                noclick="ForTop('v160')"/>
+
+                <img class = ".img3" id="v190" src="Sunflower.jpg" alt="Sunflower"
+                noclick="ForTop('v190')"/>
+
+                <img class = ".img1" id="v210" src="Jasmine.jpg" alt="Jasmine"
+                noclick="ForTop('v210')"/>
+
+            </p>
+        </body>
+        </html>
+        
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
