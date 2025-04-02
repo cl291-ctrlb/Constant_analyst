@@ -1,0 +1,294 @@
+<!-- unit10 -->
+<!-- Dynamic documents with java -->
+<!-- locating mouse cursor -->
+<!-- <!Doctype html>
+<html>
+<head>
+    <title>
+        Locating mouse cursor dynamically
+    </title>
+    <script type = "text/javascript">
+        function Locate(event)
+        {
+            document.getElementById("x1").value = event.clientX;
+            document.getElementById("y1").value = event.clientY;
+            document.getElementById("x2").value = event.clientX;
+            document.getElementById("y2").value = event.clientY;
+        }
+        </script>
+</head>
+<body onclick = "Locate(event)">
+    <form action="#">
+        <p>
+            Object Coordinate:<br/>
+            x:
+            <input type="text" id = "x1" size="4">
+            y:
+            <input type="text" id = "y1" size="4">
+            <br/>
+        Screen Coordinate:<br/>
+        x:
+            <input type="text" id = "x2" size="4">
+            y:
+            <input type="text" id = "y2" size="4">
+        </p>
+        </form>
+        <img src="Lily.jpg" width="500"/>
+</body>
+</html> -->
+
+
+
+
+
+
+<!-- Reacting to a mouse click -->
+<!-- how the mouse reacts when
+pressed, regardless of where it is on the screen: -->
+<!-- <html>
+    <head>
+        <title>
+            Reacting on mouse click dynamically
+    </title>
+    <script type="text/javascript">
+        function display(){
+            document.getElementById("msg").style.visibility="visible";
+        }
+
+        function hide(){
+            document.getElementById("msg").style.visibility="hidden";
+        }
+        document.onmousedown=display;
+        document.onmouseup=hide;
+        </script>
+    </script>
+    </head>
+<body>
+<bod>
+    <span id="msg" style="color:Brown; visibility:hidden; font-size: 36pt;">
+        plz dont click here
+</span>
+</body>
+</html> -->
+
+
+
+
+
+
+<!--slow movement of elements -->
+<!-- Only instantaneous element movements have already been studied thus far. The top and left attributes
+of the element are used to manage these movements. The only method to shift an element gradually is
+to move it several times in little increments separated by small periods of time. In JavaScript, there are
+two window methods, namely, SetTimeout and setInterval that is used to move the element slowly. -->
+
+<!-- The setTimeout function requires two arguments: a string of JavaScript code that you need to run and
+a duration (in milliseconds) to wait before running the code -->
+<!-- There are two versions of the setInterval function. One version, similar setTimeout, accepts two
+arguments. It repeats the specified code, with the second arguments indicating the time interval between
+executions in milliseconds. setInterval accepts a flexible set of arguments in its second form. The first
+argument is the name of the function to be performed, the second is the time interval in milliseconds
+among calls to the function, and the other arguments are the function’s actual parameters. -->
+
+<!-- , to move the element slowly dynamically, you need to create the HTML document, named, moveText. -->
+<!-- html document and the linked JavaScript file, named, move.js. -->
+
+<!-- see movetext.html and move.js -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- dragging and dropping elements -->
+ <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+    drag and drop element dynamically
+</title>
+<style>
+    <body {
+        font-size: 20px;
+    }.draggable{
+        position: absolute;
+        background-color: lightgreen;
+        padding: 5px;
+        cursor: grab;
+    }
+    </style>
+
+<script>
+var dX, dY, Ele;
+function picker(event)
+{
+    Ele=event.currentTarget;
+    var rect=Ele.getBoundingClientRect();
+
+    dX=event.clientX - rect.left;
+    dY=event.clientY - rect.top;
+    
+    document.addEventListener("mousemove", move, true);
+    document.addEventListener("mouseup", drop, true);
+
+    event.stopPropagation();
+    event.preventDefault();
+    }
+    function move(event){
+        if(Ele){
+            Ele.style.left = (event.clientX - dX) + "px";
+            Ele.style.top = (event.clientY - dY) + "px";
+        }
+    }
+    function drop(event){
+        document.removeEventListener("mouseup", drop, true);
+        document.removeEventListener("mousemove", drop, true);
+        Ele = null;
+        event.stopPropagation();
+    }
+</script>
+</head>
+<body style="font-size:20";>
+    <p style="color:brown; font-size:36pt"> Mother s  day</p>
+    <p>
+        <span class="draggable" style="position: absolute; top:125px; left:10px;" onmousedown="picker(event);"> mother</span>
+        <span class="draggable" style="position: absolute; top:125px; left:80px;" onmousedown="picker(event);"> Meaning</span>
+        <span class="draggable" style="position: absolute; top:125px; left:160px;"  onmousedown="picker(event);"> Everything</span>
+        <span class="draggable" style="position: absolute; top:125px; left:260px; " onmousedown="picker(event);"> Showed</span>
+        <span class="draggable" style="position: absolute; top:125px; left:335px; " onmousedown="picker(event);"> Seldom</span>
+        <span class="draggable" style="position: absolute; top:125px; left:405px;"  onmousedown="picker(event);"> is</span>
+        <span class="draggable" style="position: absolute; top:175px; left:10px; " onmousedown="picker(event);"> my</span>
+        <span class="draggable" style="position: absolute; top:175px; left:70px;"  onmousedown="picker(event);"> Simple</span>
+        <span class="draggable" style="position: absolute; top:175px; left:160px;"  onmousedown="picker(event);"> mother</span>
+        <span class="draggable" style="position: absolute; top:175px; left:260px;"  onmousedown="picker(event);"> but</span>
+        <span class="draggable" style="position: absolute; top:175px; left:320px;"  onmousedown="picker(event);"> way</span>
+        <span class="draggable" style="position: absolute; top:175px; left:85px;"  onmousedown="picker(event);"> me</span>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Elements</title>
+    <style>
+        body {
+            font-size: 20px;
+        }
+        .draggable {
+            position: absolute;
+            background-color: lightgreen;
+            padding: 5px;
+            cursor: grab;
+        }
+    </style>
+    <script>
+        var dX, dY, Ele;
+
+        function picker(event) {
+            Ele = event.currentTarget;
+            var rect = Ele.getBoundingClientRect();
+            dX = event.clientX - rect.left;
+            dY = event.clientY - rect.top;
+
+            document.addEventListener("mousemove", move, true);
+            document.addEventListener("mouseup", drop, true);
+
+            event.stopPropagation();
+            event.preventDefault();
+        }
+
+        function move(event) {
+            if (Ele) {
+                Ele.style.left = (event.clientX - dX) + "px";
+                Ele.style.top = (event.clientY - dY) + "px";
+            }
+        }
+
+        function drop(event) {
+            document.removeEventListener("mousemove", move, true);
+            document.removeEventListener("mouseup", drop, true);
+            Ele = null;
+            event.stopPropagation();
+        }
+    </script>
+</head>
+<body>
+    <p style="color:brown; font-size:36pt;">Mother's Day</p>
+    
+    <span class="draggable" style="top:125px; left:10px;" onmousedown="picker(event);">Mother</span>
+    <span class="draggable" style="top:125px; left:80px;" onmousedown="picker(event);">Meaning</span>
+    <span class="draggable" style="top:125px; left:160px;" onmousedown="picker(event);">Everything</span>
+    <span class="draggable" style="top:125px; left:260px;" onmousedown="picker(event);">Showed</span>
+    <span class="draggable" style="top:125px; left:335px;" onmousedown="picker(event);">Seldom</span>
+    <span class="draggable" style="top:125px; left:405px;" onmousedown="picker(event);">Is</span>
+    <span class="draggable" style="top:175px; left:10px;" onmousedown="picker(event);">My</span>
+    <span class="draggable" style="top:175px; left:70px;" onmousedown="picker(event);">Simple</span>
+    <span class="draggable" style="top:175px; left:160px;" onmousedown="picker(event);">Mothers</span>
+    <span class="draggable" style="top:175px; left:260px;" onmousedown="picker(event);">But</span>
+    <span class="draggable" style="top:175px; left:320px;" onmousedown="picker(event);">Way</span>
+    <span class="draggable" style="top:175px; left:85px;" onmousedown="picker(event);">Me</span>
+
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
