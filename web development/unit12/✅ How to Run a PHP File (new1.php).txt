@@ -1,0 +1,97 @@
+✅ How to Run a PHP File (new1.php) Using Localhost in VS Code (Windows)
+🖥️ Step 1: Install PHP
+Download PHP from the official site:
+https://windows.php.net/download
+
+Choose the Thread Safe version → Zip file for your system (x64 or x86)
+
+Extract the folder, rename it to php, and move it to:
+
+makefile
+Copy
+Edit
+C:\php
+⚙️ Step 2: Add PHP to the System PATH
+Press Win + S → Search Environment Variables
+
+Click: Edit the system environment variables
+
+In the System Properties window → Click Environment Variables
+
+Under System variables, find Path → Click Edit
+
+Click New → Add:
+
+makefile
+Copy
+Edit
+C:\php
+Click OK to close all windows.
+
+🧪 Step 3: Verify PHP Installation
+Open a new Command Prompt or PowerShell
+
+Type:
+
+nginx
+Copy
+Edit
+php -v
+You should see something like:
+
+scss
+Copy
+Edit
+PHP 8.x.x (cli) (built: ...)
+✅ If yes, PHP is successfully installed!
+
+📁 Step 4: Save Your PHP File
+Save your code file as:
+
+mathematica
+Copy
+Edit
+C:\Users\E-LIBRARY-01\Desktop\unit 12\new1.php
+💻 Step 5: Open the Folder in VS Code
+Launch Visual Studio Code
+
+Click File > Open Folder
+
+Navigate to:
+
+mathematica
+Copy
+Edit
+C:\Users\E-LIBRARY-01\Desktop\unit 12
+🌐 Step 6: Start PHP Built-in Server
+In VS Code → Open the Terminal (Ctrl + ~)
+
+Run the following:
+
+bash
+Copy
+Edit
+cd "C:\Users\E-LIBRARY-01\Desktop\unit 12"
+php -S localhost:8000
+You will see something like:
+
+less
+Copy
+Edit
+PHP 8.x.x Development Server (http://localhost:8000) started
+🌍 Step 7: Run Your Script in Browser
+Open your browser and go to:
+
+bash
+Copy
+Edit
+http://localhost:8000/new1.php
+✅ You should now see the output from your new1.php script!
+
+⚠️ Troubleshooting Tips
+
+Issue	Fix
+Blank Page	Make sure your script contains echo or print statements
+File Not Found (404)	Check that the file name is correct and you're in the right folder
+PHP Not Found in Terminal	Double-check the system PATH is set correctly
+Parse Errors	Check for typos or missing semicolons/brackets
