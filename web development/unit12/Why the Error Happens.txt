@@ -1,0 +1,25 @@
+ Why the Error Happens:
+
+The cd command is used to change into folders, not files.
+If you try to cd into a file like unit12.php, you'll get an error because it's not a directory.
+
+✅ Correct:
+
+powershell
+Copy code
+cd "C:\Users\E-LIBRARY-01\Desktop\unit 12"
+❌ Wrong:
+
+powershell
+Copy code
+cd "C:\Users\E-LIBRARY-01\Desktop\unit12.php"
+Once in the folder, run:
+
+powershell
+Copy code
+php -S localhost:8000
+Then open in browser:
+
+bash
+Copy code
+http://localhost:8000/unit12.php
