@@ -76,25 +76,17 @@ function getFortune() {
 echo "<h2>Your Fortune Cookie Says:</h2>";
 echo "<p>" . getFortune() . "</p>";
 
-//User-Defined Function
-function getFortune() {
-    $fortunes = [
-        "You will have a great day! 🌞",
-        "Something exciting is coming your way! 🎉",
-        "Be kind, and you'll attract kindness. 💖",
-        "Luck is on your side today! 🍀",
-        "A new opportunity will knock soon. 🚪",
-        "Adventure awaits you this weekend! 🏞️"
-    ];
-
-    // Pick a random fortune
-    $index = array_rand($fortunes);
-    return $fortunes[$index];
+//Passing Arguments by Reference
+function incrementValue(&$num){
+    $num++;
+    echo "value inside function:" .$num . "<br>";
 }
 
-echo "<h2>Your Fortune Cookie Says:</h2>";
-echo "<p>" . getFortune() . "</p>";
+$number = 5;
+echo "original value before fucntion cell:" .$number ."<br>";
 
+incrementValue($number);
+echo "original value after function call:" .$number ."<br>";
 
 
 
