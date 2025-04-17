@@ -88,6 +88,97 @@ echo "original value before fucntion cell:" .$number ."<br>";
 incrementValue($number);
 echo "original value after function call:" .$number ."<br>";
 
+/*function square($number){
+    return $number * $number;
+}
+
+$num = 56;
+echo "Square of $num is " . square($num);*/
+
+
+// other common mathematical function 
+/*
+echo sqrt(15626). "\n";
+echo pow(2,15626) . "\n"; //INF means Infinity in PHP due to number limit)
+echo abs(-15626) . "\n";
+echo round(4516.15626) . "\n";
+echo ceil(45.315626) . "\n";
+echo floor(426.15626) . "\n";
+echo rand(1,15626) . "\n";
+*/
+
+/*
+Array functions allow us to manipulate arrays. PHP supports both simple and multi-dimensional arrays.
+There are some specific functions for populating arrays from results retrieved from the database
+queries
+*/
+
+/*
+$arr =[5,8,7];
+echo "count" . count($arr);
+
+array_push($arr, 4, 5);
+
+echo "after push:";
+print_r($arr);
+
+array_pop($arr);
+print_r($arr);
+
+array_shift($arr);
+print_r($arr);
+
+array_unshift($arr, 0);
+print_r($arr);
+
+echo"\n searching and checking \n";
+echo " is 3 in array?" . (in_array(3, $arr) ? "found" : "not found" . "\n");
+echo "index of 3" . array_search(3, $arr) . "\n";
+
+echo "soriting functions \n ";
+$sortArr = [2,3,4,5];
+sort($sortArr);
+echo "sorted (ascending): ";
+print_r($sortArr);
+
+rsort($sortArr);
+echo "sorted (descending)";
+print_r($sortArr);
+
+$assocArr =["a" =>5, "b"=>4, "c" => 3];
+asort($assocArr);
+
+print_r($assocArr); //associated sorted by key:
+
+//combining and spiliting 
+$a = [4,5,6,6,64,];
+$b = [445,556,6784,6,64,];
+$c = array_merge($a, $b);
+print_r($c); // merged array
+$str = "aam,saib,amrud,aanar";
+$arrStr = explode(",", $str);
+print_r($arrStr); // exploded array
+
+$imploded = implode("-", $arrStr);
+echo "imploded string : $imploded\n";
+
+
+//advanced functions
+$num = [8, 97, 856, 45];
+
+// Squaring using array_map
+$squares = array_map(fn($n) => $n * $n, $num);
+print_r($squares); // Squaring numbers
+
+// Filtering even numbers using array_filter
+$even = array_filter($num, fn($n) => $n % 2 == 0);
+print_r($even); // Even numbers
+
+// Summing numbers using array_reduce
+$sum = array_reduce($num, fn($carry, $item) => $carry + $item, 0); // Starting from 0
+echo "Sum: $sum\n"; // Sum of the numbers
+*/
+
 
 
 
