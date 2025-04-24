@@ -179,6 +179,113 @@ $sum = array_reduce($num, fn($carry, $item) => $carry + $item, 0); // Starting f
 echo "Sum: $sum\n"; // Sum of the numbers
 */
 
+//built in functions
+//mathematical functions
+/*echo abs(-10);
+echo "<br> abs(-10)</br>" . abs(-10) . "<br>";
+echo "<br> sqrt(16)</br>" . sqrt(16) . "<br>";
+echo "<br> pow(2,3)</br>" . pow(2,3) . "<br>";
+echo "<br> round(3.6)</br>" . round(3.6) . "<br>";
+echo "<br> floor(4.6)</br>" . floor(4.6) . "<br>";
+echo "<br> ceil(4.1)</br>" . ceil(4.1) . "<br>";
+echo "<br> rand()</br>" . rand() . "<br>";
+echo "<br> rand(-1,10)</br>" . rand(-1,10) . "<br>";
+echo "<br> pi()</br>" . pi() . "<br>";
+echo "<br> sin(pi()/2)" . sin(pi()/2) . "<br>";*/
+//array functions (done in code)
+
+//string
+//String Manipulation Functions
+/*echo "<h2> php string manipulation functions</h2>";
+$text = "chomu ram";
+echo "<b> original string </b> $text'<br><br>";
+echo "<br>trim():</br>" . trim($text) . "<br>";
+echo "<br>strlen():</br>" . strlen($text) . "<br>";
+echo "<br>strtolower():</br>" . strtolower($text) . "<br>";
+echo "<br>strtoupper():</br>" . strtoupper($text) . "<br>";
+echo "<br>ucfirst():</br>" . ucfirst($text) . "<br>";
+echo "<br>strrev():</br>" . strrev($text) . "<br>";
+echo "<br>strpos():</br>" . strpos($text, "nitinkp") . "<br>";
+echo "<br>str_replace():</br>" . str_replace("nitinkp","291@",$text) . "<br>";
+echo "<br>substr():</br>" . substr($text,0,5) . "<br>";
+$array = explode(" ", trim($text));
+echo "<br>explode():</br> array after splitting the string by space";
+echo "<pre>";
+print_r($array);
+echo "</pre>";
+echo"<br>";
+echo "<br>implode():</br>" . implode(" ", $array) . "<br>";
+echo "<br>str_pad():</br>" . str_pad("chomulaal ",15, "*"). "<br>";
+echo "<br>str_repeat():</br>" . str_repeat("hello", 3) . "<br>";
+echo "<br>ord():</b>" . ord("A") . "<br>";*/
+
+
+//form processing
+//Submitting the Form Data
+//Using the get() Method
+//Using the post() Method
+//html file b h git hub mai
+
+// GET method processing
+echo "<h2>Data Received via GET</h2>";
+if (isset($_GET['name']) && isset($_GET['age'])) {
+    $name = $_GET['name'];
+    $age = $_GET['age'];
+    echo "Name: " . $name . "<br>";
+    echo "Age: " . $age . "<br>";
+} else {
+    echo "Name: <br>";
+    echo "Age: <br>";
+}
+
+// POST method processing
+echo "<h2>Data Received via POST</h2>";
+if (isset($_POST['name']) && isset($_POST['age'])) {
+    $name = $_POST['name'];
+    $age = $_POST['age'];
+    echo "Name: " . $name . "<br>";
+    echo "Age: " . $age . "<br>";
+} else {
+    echo "Name: <br>";
+    echo "Age: <br>";
+}
+
+
+
+
+//Retrieving the Form Data
+//The $_GET[] Function
+
+//The $_POST[] Function
+//Using the $_REQUEST[ ] Function
+//Using the SERVER [‘REQUEST_METHOD’] Method
+
+//FILE UPLOADS
+
+// DATES AND TIME ZONE
+
+// WORKING WITH REGULAR EXPRESSIONS
+// Searching a String using Regular Expression
+//Replacing Strings using Regular Expressions
+
+// THE INCLUDE AND REQUIRE
+
+//EXCEPTION HANDLING
+
+//STATE MANAGEMENT (session ,cookies, query string)
+
+
+
+
+
+// OBJECT ORIENTED PROGRAMMING
+
+
+
+
+//LAB EXERCISE
+//Write a PHP program to store current date-time in a COOKIE and display the ‘Last visited on’ datetime on the web page upon reopening of the same page.
+//Write a PHP program to store page views count in SESSION, to increment the count on each refresh, and to show the count on web page
 
 
 
