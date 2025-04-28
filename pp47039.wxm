@@ -1,0 +1,113 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 23.05.1 ] */
+/* [wxMaxima: input   start ] */
+/*predator and prey model*/
+kill(all)
+;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+t
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+depends([x,y],t);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+eq1:diff(x,t)=f:0.4*x-0.02*x*y;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+eq2:diff(y,t)=g:0.01*x*y-0.6*y;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+x1:200;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+y1:50;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+sol:rk([f,g],[x,y],[x1,y1],[t,0,5,1]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+p1:makelist([p[1],p[2]],p,sol);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+p2:makelist([p[1],p[3]],p,sol);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+wxplot2d([[discrete,p1],[discrete,p2]]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+/*an epidimic model of influenza*/
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+kill(all);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+depends([S,I],t)$;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+'b = b:2.18*10^(-3);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+'r=r*0.44;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+eq1:'diff(s,t)=-b*S*I;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+eq2:'diff(I,t)=b*S*I-r*I;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+point:rk([rhs(eq1),rhs(eq2)],[S,I],[762,1],[t,0,25,1])$
+    
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+[%[1],last(%),length(%)];
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+SI:makelist([points[I][1],points[I][2]],I,1,lenght(points))$
+/* [wxMaxima: input   end   ] */
+
+
+
+/* Old versions of Maxima abort on loading files that end in a comment. */
+"Created with wxMaxima 23.05.1"$
