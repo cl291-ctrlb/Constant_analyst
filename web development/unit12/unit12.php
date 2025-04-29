@@ -396,6 +396,61 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 //FILE UPLOADS
+/*
+You can upload files on a web server using a PHP script. Initially, files are uploaded into a temporary
+given in the upload_tmp_dir parameter and then uploaded on the server. You can set the size limit of
+the file to be uploaded by using the upload_max_filesize parameter. These parameters are available in
+the PHP configuration file php.ini.
+*/
+// Enable error reporting for debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Define the target directory for file uploads
+    $target_dir = "uploads/";
+
+    // Check if the uploads directory exists, if not, create it
+    if (!is_dir($target_dir)) {
+        mkdir($target_dir, 0777, true);  // 0777 sets full write permissions
+    }
+
+    // Get file information
+    $file_name = basename($_FILES["myfile"]["name"]);
+    $target_file = $target_dir . time() . "_" . $file_name;
+    $file_size = $_FILES["myfile"]["size"];
+    $file_tmp_name = $_FILES["myfile"]["tmp_name"];
+    $file_error = $_FILES["myfile"]["error"];
+
+    // Allowed file types (modify as per your needs)
+    $allowed_types = ["image/jpeg", "image/png", "application/pdf"];  // Add more if needed
+    $file_type = mime_content_type($file_tmp_name);
+
+    // Check if the file type is allowed
+    if (!in_array($file_type, $allowed_types)) {
+        echo "Sorry, only JPG, PNG, and PDF files are allowed.";
+        exit;
+    }
+
+    // Check file size (example: 5MB)
+    if ($file_size > 5 * 1024 * 1024) {
+        echo "Sorry, your file is too large. Maximum file size is 5MB.";
+        exit;
+    }
+
+    // Check for any errors during file upload
+    if ($file_error !== 0) {
+        echo "Upload failed with error code: " . $file_error;
+    } elseif (move_uploaded_file($file_tmp_name, $target_file)) {
+        echo "File <strong>" . htmlspecialchars($file_name) . "</strong> uploaded successfully.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+
+    echo "<br><a href='file_upload_php.php'>Upload another file</a>";
+}
+// kaafi try kia but one file submit krne k baad another file submit nhi ,firse add krne k lia html to dubara run krna pd rha h
 
 // DATES AND TIME ZONE
 
