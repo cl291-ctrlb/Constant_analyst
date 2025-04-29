@@ -256,15 +256,16 @@ if (isset($_POST['name']) && isset($_POST['age'])) {
 //Retrieving the Form Data
 echo "<h2>Data Received via GET</h2>";
 
-if (isset($_GET['name']) && isset($_GET['age'])) {
-    $name = $_GET['name'];
-    $age = $_GET['age'];
+if (isset($_GET['name']) && isset($_GET['age']) && $_GET['name'] !== '' && $_GET['age'] !== '') {
+    $name = htmlspecialchars($_GET['name']);
+    $age = htmlspecialchars($_GET['age']);
 
-    echo "Name: " . htmlspecialchars($name) . "<br>";
-    echo "Age: " . htmlspecialchars($age) . "<br>";
+    echo "Name: " . $name . "<br>";
+    echo "Age: " . $age . "<br>";
 } else {
     echo "Please submit the form.<br>";
 }
+//isme ek folder banao usme sare files rkho html aur php dono and move this folder to xampp>htdocs then run html file first and enter the inputs and u will see ansers show which u entered when u run html file 
 //The $_GET[] Function
 
 
