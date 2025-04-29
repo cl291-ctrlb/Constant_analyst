@@ -266,7 +266,7 @@ if (isset($_GET['name']) && isset($_GET['age']) && $_GET['name'] !== '' && $_GET
     echo "Please submit the form.<br>";
 }
 //isme ek folder banao usme sare files rkho html aur php dono and move this folder to xampp>htdocs then run html file first and enter the inputs and u will see ansers show which u entered when u run html file 
-//The $_GET[] Function
+//The $_GET[] Function (uper wala isse se kia h )
 
 
 
