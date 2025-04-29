@@ -308,7 +308,92 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 //Using the $_REQUEST[ ] Function
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $name = $_REQUEST['name'];
+    $email = $_REQUEST['email'];
+    
+    $message = $_REQUEST['message'];
+    
+    echo "<h2> form submitted successfully using request</h2>";
+    echo "<p> <strong>Name:</strong>" . htmlspecialchars($name) . "</p>";
+    echo "<p> <strong>Email:</strong>" . htmlspecialchars($email) . "</p>";
+    echo "<p> <strong>Message:</strong>" . htmlspecialchars($message) . "</p>";
+    echo "<br><a href='request.php'> go back form </a>";
+
+
+}else {
+    ?>
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>contact us</title>
+    </head>
+    <body>
+    <h2>contact us (using request)</h2>
+    <form method="POST" action="request.php">
+    Name:<input type="text" name="name" required><br>
+    Email:<input type="email" name="email" required><br>
+    message:
+    <br>
+    <textarea name="message" rows="5" cols="40" required> </textarea><br>
+    
+    <input type="submit" values="send Message" required><br>
+    </form>
+    </body>
+    </html>
+
+    <?php
+}
+
+
+
+
+
+
+
+
 //Using the SERVER [‘REQUEST_METHOD’] Method
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $name = $_REQUEST['name'];
+    $email = $_REQUEST['email'];
+    
+    $message = $_REQUEST['message'];
+    
+    echo "<h2> Data Retrieved using SERVER['REQUEST_METHOD']!</h2>";
+    echo "<p> <strong>Name:</strong>" . htmlspecialchars($name) . "</p>";
+    echo "<p> <strong>Email:</strong>" . htmlspecialchars($email) . "</p>";
+    echo "<p> <strong>Message:</strong>" . htmlspecialchars($message) . "</p>";
+    echo "<br><a href='server_request_method.php'> go back form </a>";
+
+
+}else {
+    ?>
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>contact us</title>
+    </head>
+    <body>
+    <h2>contact us  using SERVER['REQUEST_METHOD']!</h2>
+    <form method="POST" action="server_request_method.php">
+    Name:<input type="text" name="name" required><br>
+    Email:<input type="email" name="email" required><br>
+    message:
+    <br>
+    <textarea name="message" rows="5" cols="40" required> </textarea><br>
+    
+    <input type="submit" values="send Message" required><br>
+    </form>
+    </body>
+    </html>
+
+    <?php
+}
+
+
+
 
 //FILE UPLOADS
 
