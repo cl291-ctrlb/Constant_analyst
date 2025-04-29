@@ -271,6 +271,42 @@ if (isset($_GET['name']) && isset($_GET['age']) && $_GET['name'] !== '' && $_GET
 
 
 //The $_POST[] Function
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve form values using $_POST[]
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+
+    // Display the submitted data
+    echo "<h2>Form Submitted Successfully!</h2>";
+    echo "<p><strong>Name:</strong> " . htmlspecialchars($name) . "</p>";
+    echo "<p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>";
+    echo "<p><strong>Message:</strong> " . nl2br(htmlspecialchars($message)) . "</p>";
+
+    echo "<br><a href='post.php'>Go back to the form</a>";
+} else {
+    // Show the form if it's not submitted yet
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Contact Us</title>
+    </head>
+    <body>
+        <h2>Contact Us</h2>
+        <form method="POST" action="post.php">
+            Name: <input type="text" name="name" required><br><br>
+            Email: <input type="email" name="email" required><br><br>
+            Message:<br>
+            <textarea name="message" rows="5" cols="40" required></textarea><br><br>
+            <input type="submit" value="Send Message">
+        </form>
+    </body>
+    </html>
+    <?php
+}
+
+
 //Using the $_REQUEST[ ] Function
 //Using the SERVER [‘REQUEST_METHOD’] Method
 
