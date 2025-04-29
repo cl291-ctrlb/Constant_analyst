@@ -254,7 +254,20 @@ if (isset($_POST['name']) && isset($_POST['age'])) {
 
 
 //Retrieving the Form Data
+echo "<h2>Data Received via GET</h2>";
+
+if (isset($_GET['name']) && isset($_GET['age'])) {
+    $name = $_GET['name'];
+    $age = $_GET['age'];
+
+    echo "Name: " . htmlspecialchars($name) . "<br>";
+    echo "Age: " . htmlspecialchars($age) . "<br>";
+} else {
+    echo "Please submit the form.<br>";
+}
 //The $_GET[] Function
+
+
 
 //The $_POST[] Function
 //Using the $_REQUEST[ ] Function
