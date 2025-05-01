@@ -483,6 +483,18 @@ $result = preg_replace($pattern, $replacement, $text);
 echo $result;
 
 // THE INCLUDE AND REQUIRE
+/*The include and require statements allow to add code of a specified file into the file containing the
+include or require statements. These statements are very useful when you want to use the same code
+several times in a script or web page. The difference between these two statements is that the include
+statement produces only a warning and the script will continue executing, on the other hands, the
+require statement produces a fatal error and stops the script execution. 
+
+include	Includes and evaluates a file. If the file is missing, it gives a warning and continues execution.
+require	Includes and evaluates a file. If the file is missing, it gives a fatal error and stops execution.*/
+include "header.php";
+echo "welcome to main page "; 
+// main.php
+echo "<h2> this is the header  </h2>"; // header.php
 
 //EXCEPTION HANDLING
 
