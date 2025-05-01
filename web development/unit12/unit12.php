@@ -497,11 +497,40 @@ echo "welcome to main page ";
 echo "<h2> this is the header  </h2>"; // header.php
 
 //EXCEPTION HANDLING
+function divide($a, $b){
+    if($b == 0){
+        throw new Exception("division by zero is not allowed");
+    }
+    return $a/$b;
+}
+try{
+    echo divide(10,2);
+    echo divide(10,0);
+    
+} catch (Exception $e){
+    echo "error" . $e->getMessage();
+}
 
 //STATE MANAGEMENT (session ,cookies, query string)
+/*
+PHP allows us to store states of a website either on the server itself, or in the user’s browser. PHP provides
+three different techniques to manage states:*/
+//session
+ session_start();
+$_SESSION["username"] = "E-Library";
+echo "welcome," .$_SESSION["username"];
 
-
-
+//Cookies
+setcookie("user", "E-library", time()+(86400*7), "/");
+if(isset($_COOKIE["user"])){
+    echo "welcome back, " .$_COOKIE["user"];
+}else{
+    echo "hello, new visitor";
+}
+//Query String
+<a href="header.php?name=E-Library">Click Here</a> // isko php k bahar likha in file.php 
+$name = $_GET['name'];
+echo "welcome , $name"; //header.php
 
 
 // OBJECT ORIENTED PROGRAMMING
