@@ -453,10 +453,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // kaafi try kia but one file submit krne k baad another file submit nhi ,firse add krne k lia html to dubara run krna pd rha h
 
 // DATES AND TIME ZONE
+ echo "Default Time Zone: " . date_default_timezone_get() . "<br>";
+
+// Set a new default time zone
+date_default_timezone_set("Asia/Kolkata");
+
+// Get the updated default time zone
+echo "Updated Time Zone: " . date_default_timezone_get() . "<br>";
+
+// Display current date and time in the new time zone
+echo "Current Date and Time: " . date("Y-m-d H:i:s");
 
 // WORKING WITH REGULAR EXPRESSIONS
 // Searching a String using Regular Expression
+$text = "Welcome to E-Library!";
+$pattern = "/E-Library/";
+
+if (preg_match($pattern, $text)) {
+    echo "Match found!";
+} else {
+    echo "Match not found.";
+}
 //Replacing Strings using Regular Expressions
+$text = "The book number is 12345.";
+$pattern = "/\d+/";
+$replacement = "[number removed]";
+
+$result = preg_replace($pattern, $replacement, $text);
+echo $result;
 
 // THE INCLUDE AND REQUIRE
 
