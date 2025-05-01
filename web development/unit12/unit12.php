@@ -567,8 +567,24 @@ $student2->introduce();
 
 //LAB EXERCISE
 //Write a PHP program to store current date-time in a COOKIE and display the ‘Last visited on’ datetime on the web page upon reopening of the same page.
+//Set a cookie with the current date and time.
+//On page reload, show the last visit time (from the cookie).
+$visit_time = date("Y-m-d H:i:s");
+if(isset($_COOKIE['last_visit'])){
+    echo "last visited on " . $_COOKIE['last_visit'] . "<br>";
+}else{
+    echo "this is your first visit <br>";
+}
+setcookie("last_visit", $visit_time, time()+ (30*24*60));
 //Write a PHP program to store page views count in SESSION, to increment the count on each refresh, and to show the count on web page
-
+session_start();
+if(!isset($_SESSION['views'])){
+    $_SESSION['views'] = 1;
+    echo "welcome this is your first visit";
+}else{
+    $_SESSION['views'] +=1;
+    echo "you have refreshed this page " . $_SESSION['views'] . "tiems";
+}
 
 
 
