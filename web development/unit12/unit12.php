@@ -532,8 +532,35 @@ if(isset($_COOKIE["user"])){
 $name = $_GET['name'];
 echo "welcome , $name"; //header.php
 
+/*
+OBJECT ORIENTED PROGRAMMING
+*/
+// Creating a Class
+class Student {
+    public $name;
+    public $course;
 
-// OBJECT ORIENTED PROGRAMMING
+    // Constructor to initialize properties
+    public function __construct($name, $course) {
+        $this->name = $name;
+        $this->course = $course;
+    }
+
+    // Method to display student info
+    public function introduce() {
+        echo "Hello, I am " . $this->name . " and I am studying " . $this->course . ".<br>";
+    }
+}
+
+// Instantiating Class
+$student1 = new Student("Nitin", "BCA");
+$student2 = new Student("KP", "Math Honours");
+
+// Calling method to show output
+$student1->introduce();
+$student2->introduce(); 
+
+
 
 
 
