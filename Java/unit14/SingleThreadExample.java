@@ -179,6 +179,58 @@ two synchronization techniques:
  To prevent the obstacles that can arise when two threads share the same resource at the same time
  
 */
+// BankAccount class represents a shared resource that multiple threads will access
+
+
+
+class BankAccount{
+    private int balance = 1000; // // Shared resource (balance) to be accessed by multiple threads
+
+    // Synchronized method to ensure only one thread can access it at a time
+    // This prevents race conditions when multiple threads try to update balance
+    public synchronized void withdraw(int amount){
+        // Checking if balance is sufficient to perform the withdrawal
+        if (balance >= amount){
+            // Output the thread's name and the amount it's withdrawing
+            System.out.println(Thread.currentThread().getName()+"is withdraw"+ amount);
+             // Subtract the amount from the balance (critical section)
+                balance -= amount;
+               // Display the new balance after withdrawal
+               System.out.println("new balance"+balance); 
+        }else{
+            System.out.println(Thread.currentThread().getName()+"insufficient balance");
+        }
+    }
+} 
+
+// AccountUser class represents a user who will attempt to withdraw money from the shared bank account
+class AccountUser extends Thread {
+    private BankAccount account;
+    private int amount;
+    public AccountUser(BankAccount account, int amount){
+        this.account = account;
+        this.amount = amount;
+    }
+    // Override the run() method to execute the withdrawal process
+    //Override
+    public void run(){
+        account.withdraw(amount);
+    }
+
+}
+
+public class ThreadSynchronizationExample{
+    public static void main(String[] args){
+        BankAccount account =new BankAccount();
+        AccountUser user1 = new AccountUser(account, 500);
+        AccountUser user2 = new AccountUser(account, 500);
+        user1.start();
+        user2.start();
+    }
+}
+
+
+
 
 /*  
  Multithreaded Custom Class Loader
