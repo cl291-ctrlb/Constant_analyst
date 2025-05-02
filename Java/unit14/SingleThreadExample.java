@@ -140,7 +140,34 @@ has completed. Once the thread is in this state, it never run again.
 A thread does not start executing until an object of the thread is created
 
 */
+class MyThread extends Thread{
+    public void run(){
+        try{
+            System.out.println("thread started");
+            Thread.sleep(2000);
+            System.out.println("thread is still running");
+            Thread.sleep(2000);
+            System.out.println("thread is executing");
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+}
 
+public class ThreadLifeCycleExample{
+    public static void main(String[] args) {
+        MyThread thread = new MyThread();
+        System.out.println("thread creatd , but not yet started");
+        thread.start();
+        System.out.println("thread started , now running");
+        try{
+            thread.join();
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        System.out.println("main thread finished , mythread has teminated ");
+   }
+}
 /*
  Synchronization of Threads(serialization)
  a mechanism to ensure that no two concurrently
