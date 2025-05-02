@@ -433,7 +433,32 @@ in the setPriority () method, then the priority of the thread will be 5.
  MAX_PRIORITY: Indicates the maximum priority of a thread whose value is 10. Passing
 this constant in the setPriority () method will set the priority of the thread to maximum, that is, 10.
 */
+class MypriorityThread extends Thread{
+  public MypriorityThread(String name){
+    super(name); // set thread name
+  }
+  @Override
+  public void run(){
+    System.out.println(getName() + "is running with priority" + getPriority());
 
+  }
+}
+public class ThreadProrityExample{
+  public static void main(String[] args){
+    MypriorityThread thread1 = new MypriorityThread("low priority thread");
+    MypriorityThread thread2 = new MypriorityThread("normal priority thread");
+    MypriorityThread thread3 = new MypriorityThread("high priority thread");
+    // Setting priorities
+    thread1.setPriority(Thread.MIN_PRIORITY);
+    thread2.setPriority(Thread.NORM_PRIORITY);
+    thread3.setPriority(Thread.MAX_PRIORITY);
+    // Starting all threads
+    thread1.start();
+    thread2.start();
+    thread3.start();
+
+  }
+}
 //SYNCHRONIZING THREADS
 //Synchronized Method
 //Synchronized Statement
