@@ -304,7 +304,43 @@ public class TestCustomClassLoader {
 //THE MAIN THREAD
 //Implementing the Runnable Interface
 //Extending the Thread Class
+class MyRunnable implements Runnable{
+  @Override
+  public void run(){
+    System.out.println(Thread.currentThread().getName()+"is executing the runnable task");
+  }
+}
+// Approach 2: Extending the Thread Class
+class MyThread extends Thread {
+  @Override
+  public void run(){
+    System.out.println(Thread.currentThread().getName()+"is executing task");
+    
+  }
+}
+//main class
+public class MyThreadExample {
+  public static void main(String[] args) {
+      // Creating a thread using Runnable interface
+      MyRunnable myRunnable = new MyRunnable();
+      Thread thread1 = new Thread(myRunnable);
+      thread1.start(); // Start the thread created using Runnable
 
+      // Creating a thread by extending the Thread class
+      MyThread thread2 = new MyThread();
+      thread2.start(); // Start the thread created using Thread
+
+      // Main thread's execution
+      System.out.println(Thread.currentThread().getName() + " is main thread");
+  }
+}
+/*
+ abey yaar barr barr krna pd rha
+ /c/Users/E-LIBRARY-15/OneDrive/Desktop/java
+javac MyThreadExample.java
+java MyThreadExample
+
+ */
 
 //CREATING MULTIPLE THREADS
 
