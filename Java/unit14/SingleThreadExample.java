@@ -569,6 +569,38 @@ public class InterThreadCommunicationExample {
 
 
 // DEADLOCKS IN THREADS
+class A{
+  synchronized void methodA(B b){
+    System.out.println("thread 1 locked a , try to call method b");
+    b.last();
+  }
+  synchronized void last(){
+    System.out.println("thread 1 inside a' s last method");
+  }
+}
+class B{
+  synchronized void method(A a){
+    System.out.println("Thread 2: Locked B, trying to call method A");
+    a.last();
+  }
+  synchronized void last(){
+    System.out.println("Thread 2: Inside B's last method");
+  }
+}
+public class DeadlockExample{
+  public static void main(String [] args){
+     A a = new A();
+     B b = new B();
+     // // Thread 1 trying to access methodA() of class A
+     Thread t1 = new Thread(()-> a.methodA(b));
+     // Thread 2 trying to access methodB() of class B
+     Thread t2 = new Thread(()-> b.method(a)
+     );
+     t1.start();
+     t2.start();
+    
+  }
+}
 
 //SUSPENDING, RESUMING AND STOPPING THREADS
 
