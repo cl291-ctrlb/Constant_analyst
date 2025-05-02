@@ -603,7 +603,81 @@ public class DeadlockExample{
 }
 
 //SUSPENDING, RESUMING AND STOPPING THREADS
+class ThreadControl {
+  private volatile boolean suspended = false;
+  private volatile boolean stopped = false;
 
+  // Method to suspend a thread
+  public synchronized void suspendThread() {
+      suspended = true;
+  }
+
+  // Method to resume a suspended thread
+  public synchronized void resumeThread() {
+      suspended = false;
+      notify();
+  }
+
+  // Method to stop a thread
+  public synchronized void stopThread() {
+      stopped = true;
+      notify();
+  }
+
+  public void runTask() {
+      while (!stopped) {
+          synchronized (this) {  // Suspend the thread if needed
+              while (suspended) {
+                  try {
+                      wait(); // Wait until resumed
+                  } catch (InterruptedException e) {
+                      System.out.println("Thread interrupted");
+                  }
+              }
+          }
+          System.out.println(Thread.currentThread().getName() + " is running");
+          try {
+              Thread.sleep(500); // Simulate time-consuming task
+          } catch (InterruptedException e) {
+              System.out.println("Thread interrupted during sleep");
+          }
+      }
+      System.out.println(Thread.currentThread().getName() + " has stopped");
+  }
+}
+
+public class SuspendResumeStopExample {
+  public static void main(String[] args) {
+      ThreadControl control = new ThreadControl();
+
+      // Creating a thread that runs the task
+      Thread thread1 = new Thread(() -> {
+          control.runTask();
+      }, "thread1");
+
+      // Starting the thread
+      thread1.start();
+
+      // Suspend the thread after 2 seconds
+      try {
+          Thread.sleep(2000);
+          System.out.println("Suspending thread");
+          control.suspendThread();
+
+          // Wait for 2 seconds before resuming
+          Thread.sleep(2000);
+          System.out.println("Resuming thread");
+          control.resumeThread();
+
+          // Wait for 2 seconds before stopping
+          Thread.sleep(2000);
+          System.out.println("Stopping thread");
+          control.stopThread();
+      } catch (InterruptedException e) {
+          System.out.println("Main thread interrupted");
+      }
+  }
+}
 
 
 
