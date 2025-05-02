@@ -67,6 +67,42 @@ of time, and this cycle continues. In this way, threads can be used to create an
 resources
 */
 
+class SpellCheckTask extends Thread{
+    public void run(){
+        for (int i =1; i<=5 ; i++){
+            System.out.println("Spelling checking word");
+            try{
+                Thread.sleep(1000); //simulates time taken for spell check
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+class TypingTask extends Thread{
+    public void run(){
+        for(int i=1; i<=5; i++){
+            System.out.println("typing word"+i);
+            try{
+                Thread.sleep(1200); // simulates typing speed
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+public class MultithreadingExample{
+    public static void main(String[] args) {
+       SpellCheckTask spellCheckTask = new SpellCheckTask();
+        TypingTask typing = new TypingTask();
+
+        spellCheckTask.start(); // spell start checking thread
+        typing.start();// start typing thread
+    }
+}
+
 /*
  Thread Life Cycle
 Threads provide multiple paths in a program to execute different tasks simultaneously. To understand
