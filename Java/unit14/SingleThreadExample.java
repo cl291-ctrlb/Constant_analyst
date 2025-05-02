@@ -343,9 +343,82 @@ java MyThreadExample
  */
 
 //CREATING MULTIPLE THREADS
+class MyRunnableTask implements Runnable{
+  private String taskName;
+  public MyRunnableTask(String name){
+    this.taskName = name;
+  }
+  @Override
+  public void run(){
+    System.out.println(Thread.currentThread().getName()+"is running"+taskName);
+  }
+}
+// Thread class
+class MyThreadTask extends Thread{
+  private String taskName;
+  public MyThreadTask(String name){
+    this.taskName = name;
+  }
+  @Override
+  public void run(){
+    System.out.println(getName()+"is running"+ taskName);
+  }
+}
+// Main class
+public class MultipleThreadsExample{
+  public static void main(String[] args){
+    // Using Runnable
+Thread t1 = new Thread(new MyRunnableTask("running task 1"));
+Thread t2 = new Thread(new MyRunnableTask("running task 2"));
+  
+// Using Thread
+MyThreadTask t3 =new MyThreadTask("Thread task 1");
+MyThreadTask t4 =new MyThreadTask("Thread task 2");
 
+// Start all threads
+t1.start();
+t2.start();
+t3.start();
+t4.start();
+// Main thread
+System.out.println(Thread.currentThread().getName()+"is main thred");
+}
+}
 //DETERMINING WHEN A THREAD ENDS
+class MyTask extends Thread{
+  private String taskName;
+  public MyTask(String name){
+    this.taskName = name;
+  }
+  @Override
+  public void run(){
+    System.out.println(taskName+"started by"+Thread.currentThread().getName());
+    try{
+      Thread.sleep(2000);
+    }catch (InterruptedException e){
+      System.out.println(taskName+"was interrupted");
+    }
+    System.out.println(taskName+"completed by"+Thread.currentThread().getName());
+  }
+}
+public class ThreadEndExample{
+  public static void main(String[] args){
+    MyTask thread1 = new MyTask("Task-1");
+    MyTask thread2 = new MyTask("Task-2");
 
+    thread1.start();
+    thread2.start();
+
+    try{
+      thread1.join();
+      thread2.join();
+    }
+    catch(InterruptedException e){
+      System.out.println("main thread was interrupted");
+    }
+    System.out.println("both threads have finished.main threds ends");
+  }
+}
 //THREAD PRIORITIES
 /*In Java, there is a program in Java Virtual Machine (JVM) called thread scheduler, which decides how
 a thread will execute and how much time will be allocated to the thread to execute. Threads with high
