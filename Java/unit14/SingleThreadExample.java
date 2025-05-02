@@ -514,6 +514,59 @@ reader thread to have to wait until doWork()method is done. Therefore, all we ha
 getResult()method to make the reader thread wait and call notify()method in doWork() when the writer
 thread is done, and the data is ready to be read.
 */
+class ShareData {
+  private String data;
+  private boolean isDataReady = false;
+
+  // writer method
+  public synchronized void doWork(String value) {
+    System.out.println("Writer is writing data");
+    data = value;
+    try {
+      Thread.sleep(2000); // simulate time-consuming work
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    isDataReady = true;
+    notify(); // notify reader that data is ready
+    System.out.println("Writer has finished writing data");
+  }
+
+  // reader method
+  public synchronized String getResult() {
+    while (!isDataReady) {
+      try {
+        wait(); // wait for writer to write data
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+    }
+    return data;
+  }
+}
+
+public class InterThreadCommunicationExample {
+  public static void main(String[] args) {
+    ShareData shared = new ShareData();
+
+    // reader thread
+    Thread reader = new Thread(() -> {
+      System.out.println("Reader is waiting for data");
+      String result = shared.getResult();
+      System.out.println("Reader received data: " + result);
+    });
+
+    // writer thread
+    Thread writer = new Thread(() -> {
+      shared.doWork("Important result from writer");
+    });
+
+    reader.start();
+    writer.start();
+  }
+}
+
+
 
 // DEADLOCKS IN THREADS
 
