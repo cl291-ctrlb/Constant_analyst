@@ -246,9 +246,60 @@ classes.
 Invoke java.lang.ClassLoader’s static method registerAsParallelCapable(). This signifies that all the
 instances of the custom class loader are safe.
 */
+// CustomClassLoader.java
+// A custom class loader that safely supports multithreaded class loading
+public class CustomClassLoader extends ClassLoader {
+  // Static block to register this loader as parallel-capable (safe for multi-threading)
+  static {
+      // Ensures thread-safety when multiple threads load different classes
+      registerAsParallelCapable();
+  }
 
+  // Constructor that passes the parent class loader
+  public CustomClassLoader(ClassLoader parent) {
+      super(parent);
+  }
 
-//THE MAIN THREAD
+  // Overriding findClass for demonstration purposes
+  @Override
+  protected Class<?> findClass(String name) throws ClassNotFoundException {
+      // In real scenarios, bytecode would be read and defined here
+      System.out.println(Thread.currentThread().getName() + " is loading class: " + name);
+
+      // For demonstration, simulate the case where we can't find the class
+      throw new ClassNotFoundException("Dummy loader: class not found " + name);
+  } //To test the custom loader with multiple threads, you can use the following TestCustomClassLoader.java:
+}
+
+//TestCustomClassLoader.java
+public class TestCustomClassLoader {
+    public static void main (String[] args) {
+        // Create an instance of the custom class loader
+        CustomClassLoader loader = new CustomClassLoader(TestCustomClassLoader.class.getClassLoader());
+        
+        // Create multiple threads to simulate parallel class loading
+        Thread thread1 = new Thread(() -> {
+            try {
+                loader.loadClass("com.example.MyClass1");  // Corrected method name
+            } catch (ClassNotFoundException e) {
+                System.out.println("Thread 1 failed to load class");
+            }
+        }, "Thread-1");  // Corrected thread name
+
+        Thread thread2 = new Thread(() -> {
+            try {
+                loader.loadClass("com.example.MyClass2");  // Corrected method name
+            } catch (ClassNotFoundException e) {
+                System.out.println("Thread 2 failed to load class");
+            }
+        }, "Thread-2");  // Corrected thread name
+
+        // Start both threads
+        thread1.start();
+        thread2.start();
+    }
+}
+
 
 //THE MAIN THREAD
 //Implementing the Runnable Interface
