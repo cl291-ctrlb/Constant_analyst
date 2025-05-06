@@ -488,3 +488,29 @@ public class AppendFileExample {
         }
     }
 }
+
+
+
+// Reading Data from a File using the FileReader Class
+import java.io.FileReader;
+import java.io.IOException;
+
+public class FileReaderExample {
+    public static void main(String[] args) {
+        // Step 1: Create a FileReader object for the file "output.txt"
+        try (FileReader reader = new FileReader("output.txt")) {
+            // Step 2: Read the file content character by character
+            int character;
+            System.out.println("Reading file content:");
+            
+            // Step 3: Read each character until the end of file (EOF)
+            while ((character = reader.read()) != -1) {
+                // Step 4: Print the character read
+                System.out.print((char) character); // Typecast int to char for printing
+            }
+        } catch (IOException e) {
+            // Handle potential IOException
+            e.printStackTrace();
+        }
+    }
+}
