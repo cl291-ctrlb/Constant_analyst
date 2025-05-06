@@ -93,8 +93,31 @@ public class FileClassExample {
         } catch (IOException e){
             System.out.println("an erro occured"+e.getMessage());
         }
+    }}
+
+import java.io.File;
+import java.io.IOException;
+public class FileCreateCheck{
+    public static void main(String[] args){
+        try{
+            // Step 1: Create a File object with the file name "MyFile.txt"
+            // This does NOT create the file on the disk yet
+            File file = new File("Myfile.txt");
+             // Step 2: Check if the file already exists on the disk
+             if(file.exists()){
+                // If file exists, print a confirmation message
+                System.out.println("file already exist");
+             }else{
+                 // Step 3: Try to create a new file
+                // createNewFile() returns true if the file is created successfully
+                if(file.createNewFile()){
+                    System.out.println("file not created");
+                }
+             }
+        } catch(IOException e){
+            // Handle any IO errors (e.g., permission issues, disk errors)
+            System.out.println("error occured while handling the file");
+            e.printStackTrace();
+        }
     }
-
-
-    
 }
