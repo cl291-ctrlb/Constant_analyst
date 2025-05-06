@@ -604,6 +604,10 @@ public class BufferedWriterExample {
             
             // Close the writer to save and free resources
             writer.close();
+
+
+
+    
             
             System.out.println("Data written to the file successfully using BufferedWriter.");
         } catch (IOException e) {
@@ -611,3 +615,12 @@ public class BufferedWriterExample {
         }
     }
 }
+
+
+// Method	            Return Type	Description
+// newLine()	void	    Writes a platform-specific line separator.
+// write(int c)	void	    Writes a single character.
+// write(char[] cbuf, int off, int len)	void	    Writes a portion of a character array.
+// write(String s, int off, int len)	void	    Writes a portion of a string.
+// flush()	void	    Flushes the stream (forces any buffered output to be written).
+// close()	void	    Closes the stream after flushing it.
