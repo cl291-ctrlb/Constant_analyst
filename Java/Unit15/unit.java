@@ -435,3 +435,33 @@ public class AppendFileExample {
         }
     }
 }
+
+// 📘 What is FileReader?
+// FileReader is used to read character data from a file. It is suitable for text files (like .txt files).
+
+// ✅ Common Constructors of FileReader:
+// Constructor	Description
+// FileReader(File file)	Reads from a file using a File object
+// FileReader(String fileName)	Reads from a file using just the file name as a string
+// FileReader(FileDescriptor fd)	Reads from a file using a low-level file descriptor
+import java.io.FileReader;
+import java.io.IOException;
+public class AppendFileExample {
+public static void main(String[] args){
+    try{
+         // Step 1: Create FileReader object using file name
+         FileReader reader = new FileReader("output.txt");
+          // Step 2: Read character by character
+          int character;
+          System.out.println("reading file content");
+          while ((character = reader.read())!=-1){
+            System.out.print((char)character);// convert int to char and print
+        }
+         // Step 3: Close the reader
+         reader.close();
+    
+          }catch (IOException e){
+            e.printStackTrace();
+          }
+    }
+}
