@@ -266,3 +266,125 @@ public class FileCreateCheck {
 // list()	String[]	Returns names of files and directories in the specified directory.
 // mkdir()	boolean	Creates a directory with the given name.
 // renameTo(File dest)	boolean	Renames the file to the specified destination name.
+
+
+
+
+// The FileWriter class in Java is used to write data to files. It is a part of the java.io package and provides various constructors to create file-writing objects. Here's a simple breakdown of the FileWriter class and its constructors:
+
+// Constructors of FileWriter:
+// FileWriter(File file):
+// import java.io.File;
+// import java.io.FileWriter;
+// import java.io.IOException;
+
+// public class FileCreateCheck {
+//     public static void main(String[] args) throws IOException {
+//         // Step 1: Create a File object (this does not create the file yet)
+//         File file = new File("example.txt");
+
+//         // Step 2: Create a FileWriter object to write to the file
+//         FileWriter writer = new FileWriter(file);
+
+//         // Step 3: Write some text to the file
+//         writer.write("Hello, World!");
+
+//         // Step 4: Close the FileWriter to save changes and release resources
+//         writer.close();
+
+//         System.out.println("Data written to file successfully.");
+//     }
+// }
+
+// FileWriter(File file, boolean append):
+// import java.io.File;
+// import java.io.FileWriter;
+// import java.io.IOException;
+
+// public class FileCreateCheck {
+//     public static void main(String[] args) throws IOException {
+//         // Step 1: Create a File object
+//         File file = new File("example.txt");
+
+//         // Step 2: Create a FileWriter object with append mode enabled
+//         FileWriter writer = new FileWriter(file, true); // true means append mode
+
+//         // Step 3: Write text to the file
+//         writer.write("Appending this text.");
+
+//         // Step 4: Close the writer to save changes and release resources
+//         writer.close();
+
+//         System.out.println("Data appended to file successfully.");
+//     }
+// }
+// FileWriter(FileDescriptor fd):
+// import java.io.*;
+
+// public class FileWriterWithFD {
+//     public static void main(String[] args) throws IOException {
+//         // Step 1: Create a FileOutputStream to get FileDescriptor
+//         FileOutputStream fos = new FileOutputStream("example_fd.txt");
+
+//         // Step 2: Get the FileDescriptor from the FileOutputStream
+//         FileDescriptor fd = fos.getFD();
+
+//         // Step 3: Create FileWriter using the FileDescriptor
+//         FileWriter writer = new FileWriter(fd);
+
+//         // Step 4: Write to the file
+//         writer.write("Written using FileDescriptor.\n");
+
+//         // Step 5: Flush and close both
+//         writer.flush(); // Ensures data is sent to file
+//         fos.close(); // Also closes the file writer indirectly
+
+//         System.out.println("Data written using FileDescriptor.");
+//     }
+// }
+
+// FileWriter(String fileName):
+// import java.io.FileWriter;
+// import java.io.IOException;
+
+// public class FileWriterExample {
+//     public static void main(String[] args) {
+//         try {
+//             // Create a FileWriter for the file named "note.txt"
+//             FileWriter writer = new FileWriter("note.txt");
+
+//             // Write text to the file
+//             writer.write("This file was created using FileWriter(String fileName).\n");
+
+//             // Close the writer
+//             writer.close();
+
+//             System.out.println("Data written successfully.");
+//         } catch (IOException e) {
+//             e.printStackTrace();
+//         }
+//     }
+// }
+
+// FileWriter(String fileName, boolean append):
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class AppendFileExample {
+    public static void main(String[] args) {
+        try {
+            // Open or create file, and append to it
+            FileWriter writer = new FileWriter("log.txt", true);
+
+            // Write additional text
+            writer.write("This line is appended.\n");
+
+            // Close the writer
+            writer.close();
+
+            System.out.println("Data appended successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
