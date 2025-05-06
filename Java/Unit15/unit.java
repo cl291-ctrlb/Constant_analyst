@@ -624,3 +624,41 @@ public class BufferedWriterExample {
 // write(String s, int off, int len)	void	    Writes a portion of a string.
 // flush()	void	    Flushes the stream (forces any buffered output to be written).
 // close()	void	    Closes the stream after flushing it.
+
+
+//buffer reader class 
+// BufferedReader(Reader in)
+// Creates a buffered character-input stream using the default-sized input buffer.
+// BufferedReader(Reader in, int sz)
+// Creates a buffered character-input stream using a user-defined buffer size.
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class BufferedReadWriteExample {
+    public static void main(String[] args) {
+        String filename = "input.txt";
+
+        // Step 1: Write to the file using BufferedWriter
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+            writer.write("Hello, this is the first line.\n");
+            writer.write("This is the second line using BufferedWriter.");
+            System.out.println("File written successfully using BufferedWriter.\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Step 2: Read from the file using BufferedReader
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String line;
+            System.out.println("Reading file content line by line:");
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
