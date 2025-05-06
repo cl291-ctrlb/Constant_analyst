@@ -807,5 +807,21 @@ public class BufferedReadWriteExample {
     }
 }
 
+
+// Method Description
+// String readLine() Reads a line of text from the console and returns a null value if
+// the end of a stream has been reached.
+// String readLine(String fmt, Object...args) Provides a formatted prompt and reads a line of the text from
+// the console This method returns a null value if the end of a
+// stream is reached.
+// char[] readPassword() Reads a password from the console with echoing disabled.
+// char[] readPassword(String fmt, Object...args) Provides a formatted prompt and reads a password from the
+// console with echoing disabled.
+// Console reader() Returns a unique Reader object associated with the console.
+// PrintWriter writer() Returns a unique PrintWriter object associated with the consol.
+// Console printf(String format, Object... args) Prints a formatted string to the console’s outputstream using
+// the specified format string and object arguments.
+// Console format(String fmt, Object... args) Formats a string to the console’s output stream using the
+// specified format string and object arguments.
 // When prompted for the name, it will display the name entered.
 // When prompted for the password, the input will be hidden (non-echoed).
