@@ -825,3 +825,260 @@ public class BufferedReadWriteExample {
 // specified format string and object arguments.
 // When prompted for the name, it will display the name entered.
 // When prompted for the password, the input will be hidden (non-echoed).
+
+
+
+
+// In Java, the I/O system provides several interfaces to manage different types of data operations. These interfaces help in reading, writing, serializing, and filtering data, allowing you to handle streams and objects effectively.
+// DataInput Interface
+// Purpose: Reads primitive data types from a byte stream.
+// import java.io.DataOutputStream;
+// import java.io.FileOutputStream;
+// import java.io.IOException;
+
+// public class DataOutputExample {
+//     public static void main(String[] args) throws IOException {
+//         DataOutputStream dos = new DataOutputStream(new FileOutputStream("data.txt"));
+//         dos.writeInt(100);
+//         dos.writeDouble(3.14);
+//         dos.close();
+//         System.out.println("Data written to file.");
+//     }
+// }
+
+
+//DataOutput Interface
+// Purpose: Writes primitive data types to a byte stream.
+// import java.io.DataOutputStream;
+// import java.io.FileOutputStream;
+// import java.io.IOException;
+
+// public class DataOutputExample {
+//     public static void main(String[] args) {
+//         try {
+//             // Create a DataOutputStream to write binary data to a file
+//             DataOutputStream dos = new DataOutputStream(new FileOutputStream("data.txt"));
+
+//             // Writing primitive data types
+//             dos.writeInt(123);               // Write an int
+//             dos.writeDouble(45.67);          // Write a double
+//             dos.writeUTF("Hello, World!");   // Write a string in UTF format
+//             dos.writeBoolean(true);          // Write a boolean value
+
+//             dos.close(); // Always close the stream
+//             System.out.println("Data written successfully to data.txt");
+
+//         } catch (IOException e) {
+//             e.printStackTrace();
+//         }
+//     }
+// }
+
+
+//Externalizable Interface
+//Purpose: Enables custom serialization. You can define how an object is serialized and deserialized.
+// import java.io.*;
+
+// class Student implements Externalizable {
+//     private String name;
+//     private int age;
+
+//     // Public no-arg constructor is mandatory
+//     public Student() {
+//         System.out.println("No-arg constructor called");
+//     }
+
+//     public Student(String name, int age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+
+//     // Custom serialization logic
+//     public void writeExternal(ObjectOutput out) throws IOException {
+//         out.writeObject(name);  // Serialize name
+//         out.writeInt(age);      // Serialize age
+//     }
+
+//     // Custom deserialization logic
+//     public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+//         name = (String) in.readObject(); // Deserialize name
+//         age = in.readInt();              // Deserialize age
+//     }
+
+//     public void display() {
+//         System.out.println("Name: " + name + ", Age: " + age);
+//     }
+// }
+
+// public class ExternalizableExample {
+//     public static void main(String[] args) {
+//         try {
+//             // Writing the object to file
+//             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("student.ser"));
+//             Student s1 = new Student("Anjali", 22);
+//             out.writeObject(s1);
+//             out.close();
+
+//             // Reading the object back
+//             ObjectInputStream in = new ObjectInputStream(new FileInputStream("student.ser"));
+//             Student s2 = (Student) in.readObject();
+//             in.close();
+
+//             s2.display(); // Output: Name: Anjali, Age: 22
+
+//         } catch (Exception e) {
+//             e.printStackTrace();
+//         }
+//     }
+// }
+
+
+//FileFilter Interface
+//Purpose: Filters directories or file names based on custom criteria.
+// import java.io.File;
+// import java.io.FileFilter;
+
+// public class TxtFileFilterExample {
+//     public static void main(String[] args) {
+//         File directory = new File("C:\\Users\\E-LIBRARY-15\\OneDrive\\Desktop\\nkp");
+
+//         // Define a filter to accept only .txt files
+//         FileFilter txtFilter = new FileFilter() {
+//             public boolean accept(File file) {
+//                 return file.isFile() && file.getName().endsWith(".txt");
+//             }
+//         };
+
+//         File[] txtFiles = directory.listFiles(txtFilter);
+
+//         // Print matching files
+//         System.out.println("Text files in the directory:");
+//         if (txtFiles != null) {
+//             for (File file : txtFiles) {
+//                 System.out.println(file.getName());
+//             }
+//         } else {
+//             System.out.println("Directory does not exist or is not readable.");
+//         }
+//     }
+// }
+
+//FilenameFilter Interface
+//Purpose: Filters file names, returning only the file names that match specific criteria.
+// import java.io.File;
+// import java.io.FilenameFilter;
+
+// public class TxtFilenameFilterExample {
+//     public static void main(String[] args) {
+//         // Create a File object pointing to your working directory
+//         File dir = new File("C:\\Users\\E-LIBRARY-15\\OneDrive\\Desktop\\nkp");
+
+//         // Create a FilenameFilter to filter only .txt files
+//         FilenameFilter txtFilter = new FilenameFilter() {
+//             public boolean accept(File dir, String name) {
+//                 return name.endsWith(".txt");
+//             }
+//         };
+
+//         // Get the list of .txt files using the filter
+//         String[] files = dir.list(txtFilter);
+
+//         // Print the list
+//         System.out.println("Text files in the directory:");
+//         for (String file : files) {
+//             System.out.println(file);
+//         }
+//     }
+// }
+
+// ObjectInput Interface
+// Purpose: Reads objects from an input stream. It extends DataInput and helps in reading serialized objects.
+// import java.io.FileOutputStream;
+// import java.io.ObjectOutputStream;
+// import java.io.IOException;
+
+// public class SerializationExample {
+//     public static void main(String[] args) {
+//         Student student = new Student("Anjali", 22);
+
+//         try (FileOutputStream fileOut = new FileOutputStream("student.ser");
+//              ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
+//             out.writeObject(student);  // Serializing the Student object
+//             System.out.println("Serialized data is saved in student.ser");
+//         } catch (IOException e) {
+//             e.printStackTrace();
+//         }
+//     }
+// }
+
+// class Student implements java.io.Serializable {
+//     String name;
+//     int age;
+
+//     public Student(String name, int age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+
+//     public void display() {
+//         System.out.println("Name: " + name + ", Age: " + age);
+//     }
+// }
+
+// //part2
+// import java.io.FileInputStream;
+// import java.io.ObjectInputStream;
+// import java.io.IOException;
+// import java.lang.ClassNotFoundException;  // Corrected import
+
+// public class DeserializationExample {
+//     public static void main(String[] args) {
+//         Student student = null;
+
+//         try (FileInputStream fileIn = new FileInputStream("student.ser");
+//              ObjectInputStream in = new ObjectInputStream(fileIn)) {
+//             student = (Student) in.readObject();  // Deserializing the Student object
+//             student.display();  // Displaying the deserialized object
+//         } catch (IOException | ClassNotFoundException e) {
+//             e.printStackTrace();
+//         }
+//     }
+// } // uper wale kya error aara h nhi pta
+
+
+
+
+//ObjectOutput Interface
+//Purpose: Writes objects to an output stream. It extends DataOutput and helps in writing serialized objects.
+// import java.io.FileOutputStream;
+// import java.io.ObjectOutputStream;
+// import java.io.IOException;
+
+// public class ObjectOutputExample {
+//     public static void main(String[] args) {
+//         // Create an object to be serialized
+//         Student student = new Student("John", 20);
+
+//         try (FileOutputStream fileOut = new FileOutputStream("student.ser");
+//              ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
+//             out.writeObject(student);  // Serialize the Student object to a file
+//             System.out.println("Student object has been serialized to student.ser");
+//         } catch (IOException e) {
+//             e.printStackTrace();
+//         }
+//     }
+// }
+
+// class Student implements java.io.Serializable {
+//     String name;
+//     int age;
+
+//     public Student(String name, int age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+
+//     void display() {
+//         System.out.println("Name: " + name + ", Age: " + age);
+//     }
+// }
