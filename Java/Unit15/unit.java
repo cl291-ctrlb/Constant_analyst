@@ -256,3 +256,13 @@ public class FileCreateCheck {
         }
     }
 }
+
+// Method	Return Type	Description
+// createNewFile()	boolean	Creates a new empty file if it doesn't already exist.
+// delete()	boolean	Deletes the file or directory with the given name.
+// exists()	boolean	Checks if the file or directory exists.
+// isDirectory()	boolean	Checks if the path refers to a directory.
+// isFile()	boolean	Checks if the path refers to a file.
+// list()	String[]	Returns names of files and directories in the specified directory.
+// mkdir()	boolean	Creates a directory with the given name.
+// renameTo(File dest)	boolean	Renames the file to the specified destination name.
