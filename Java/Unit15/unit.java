@@ -514,3 +514,37 @@ public class FileReaderExample {
         }
     }
 }
+
+
+// shows how to write and read character streams to a file using the FileWriter and FileReader
+// classes:
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.FileReader;
+
+public class FileReaderExample {
+    public static void main(String[] args) {
+        // Step 1: Writing data to a file using FileWriter
+        try (FileWriter writer = new FileWriter("example.txt")) {
+            // Step 2: Writing some character data to the file
+            writer.write("Hello, this is a sample text written using FileWriter.\n");
+            writer.write("This is the second line of text.\n");
+            System.out.println("Data written to file successfully using FileWriter.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Step 3: Reading data from the file using FileReader
+        try (FileReader reader = new FileReader("example.txt")) {
+            // Step 4: Reading the file content character by character
+            int character;
+            System.out.println("Reading file content:");
+            while ((character = reader.read()) != -1) {
+                // Step 5: Print each character read
+                System.out.print((char) character);  // Typecast int to char to print as characters
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
