@@ -465,3 +465,26 @@ public static void main(String[] args){
           }
     }
 }
+
+
+// shows how to read characters from a file using the FileReader class
+import java.io.FileReader;
+import java.io.IOException;
+
+public class AppendFileExample {
+    public static void main(String[] args) {
+        try {
+            FileReader reader = new FileReader("output.txt");
+            int character;
+
+            System.out.println("Reading file content:");
+            while ((character = reader.read()) != -1) {
+                System.out.print((char) character); // print without newline
+            }
+
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
