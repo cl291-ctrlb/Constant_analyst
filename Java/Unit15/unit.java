@@ -191,3 +191,42 @@ public class FileCreateCheck {
             System.out.println("d present now");
           }
     }}
+
+// Concept Summary (Simple Words):
+// Java's File class has two useful methods:
+
+// renameTo(File dest): Renames the current file to a new name (or moves it).
+
+// delete(): Deletes the file from the disk.
+
+// These operations return true if successful, otherwise false.
+import java.io.File;
+import java.io.IOException;
+
+public class FileCreateCheck {
+    public static void main(String[] args) throws IOException {
+        // Step 1: Create a file named "old_file.txt"
+        File oldFile = new File("old_file.txt");
+
+        if (!oldFile.exists()) {
+            oldFile.createNewFile(); // Create file only if it doesn't exist
+            System.out.println("old_file.txt created");
+        }
+
+        // Step 2: Rename "old_file.txt" to "newfile.txt"
+        File newFile = new File("newfile.txt");
+
+        if (oldFile.renameTo(newFile)) {
+            System.out.println("File renamed to newfile.txt");
+        } else {
+            System.out.println("File rename to newfile.txt failed");
+        }
+
+        // Step 3: Delete "newfile.txt"
+        if (newFile.delete()) {
+            System.out.println("newfile.txt deleted successfully");
+        } else {
+            System.out.println("File deletion failed");
+        }
+    }
+}
