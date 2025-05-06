@@ -230,3 +230,29 @@ public class FileCreateCheck {
         }
     }
 }
+
+
+//The list() method in Java's File class is used to list all the files and directories inside a specified directory. It returns an array of String containing the names of the files and directories. This method can be used to search for files by checking for specific file names or patterns.
+import java.io.File;
+
+public class FileCreateCheck {
+    public static void main(String[] args) {
+        // Step 1: Create a File object for the directory where we want to search
+        File directory = new File("C:\\Users\\E-LIBRARY-15\\OneDrive\\Desktop\\nkp");
+
+        // Step 2: Use list() method to get a list of file names in the directory
+        String[] files = directory.list();
+
+        // Step 3: Check if directory is empty or contains files
+        if (files != null) {
+            // Step 4: Loop through and print file names
+            System.out.println("List of files in the directory:");
+            for (String fileName : files) {
+                System.out.println(fileName);
+            }
+        } else {
+            // If the directory doesn't exist or is empty
+            System.out.println("Directory is empty or does not exist.");
+        }
+    }
+}
