@@ -1082,3 +1082,199 @@ public class BufferedReadWriteExample {
 //         System.out.println("Name: " + name + ", Age: " + age);
 //     }
 // }
+
+
+
+//left to complete
+// I/O STREAMS AND ITS TYPES
+// Streams facilitate in transporting data from one place to another, just as water pipes carry water from
+// one place to another. Different streams are needed to send or receive data through different sources.
+// For example, receiving data from the keyboard requires one stream and sending data to a file requires
+// another stream. Streams can be categorized as input streams and output streams. Input streams are
+// streams that receive or read data, whereas output streams are streams that send or write data. All
+// streams are represented by classesin the java.io (input-output) package.
+
+
+
+
+// Stream Class Hierarchy
+// Streams are classified as byte streams and text streams. Byte streams represent data in the form of
+// individual bytes. Text streams represent data as characters of 2 bytes each. If a class name ends with the
+// word Stream, then this class comes under byte streams. The InputStream class and its subclasses, such
+// as FileInputStream and ObjectInputStream, are used to read bytes, and the OutputStream class and its
+// subclasses, such as FileOutputStream and ObjectOutputStream, are used to writes bytes.
+
+
+
+
+// Classes Description
+// Object The Object class is the parent class of all the classes in java by default.
+// InputStream The InputStream class is the superclass of all the io classes and represents an
+// input stream of bytes.
+// FileInputStream The FileInputStream class is used to perform simple file input operations. It is used
+// to read data from a file in the form of sequence of bytes, but can skip a region of
+// data also as per the requirement. The FileInputStream class can read data from a
+// text file; however, it reads binary data from a file.
+// ByteArrayInputStream The ByteArrayInputStream class is used to read byte array as input stream.
+// FilterInputStream The FilterInputStream class implements the InputStream. It contains various sub
+// classes as BufferedInputStream, DataInputStream to provide more functionality.
+// BufferedInputStream The BufferedInputStream class is used for reading information from stream.
+// DataInputStream The DataInputStream class allows an application to read binary data of Java
+// primitive data types to an input stream in a portable way. This class, derived from
+// the FilterInputStream class, is used to read only Java primitive data types and not
+// object values.
+
+
+
+
+
+// ObjectInputStream The ObjectInputStream class deserializes primitive data types and objects of a class
+// that were previously serialized, using the ObjectOutputStream class. The
+// readObject() method of the ObjectInputStream class is used to read an object from
+// the stream.
+// OutputStream The OutputStream class is the superclass of all classes signifying an output stream
+// of bytes.
+// FileOutputStream The FileOutputStream class is used to perform simple file output operations. This
+// class belongs to the byte stream and stores data in the form of individual bytes. The
+// FileOutputStream class can be used to create text files. However, this class writes
+// binary data to a file.
+// ByteArrayOutputStream The ByteArrayOutputStream classis used for writing common data into several
+// files.
+// FilterOutputStream The FilterOutputStream class is the superclass of all those classes which filters
+// output streams.
+// BufferedOutputStream The BufferedOutputStream class is used to buffer an output stream.
+// DataOutputStream The DataOutputStream class allows an application to write binary data of Java
+// primitive data types to an output stream in a portable way. This class, derived
+// from the FilterOutputStream class, is used to write only Java primitive data types
+// and not object values.
+// ObjectOutputStream The ObjectOutputStream class can write (or serialize) primitive data types and
+// objects of a class to an output stream. The writeObject() method of the
+// ObjectOutputStream class is used to write an object to the stream.
+
+
+
+
+
+ 
+
+// BYTE STREAMS
+// Byte streams are used to perform input and output of 8-bit bytes. They are used to handle I/O operations
+// on binary data. There are many classes related to byte streams but the most frequently used classes are,
+// FileInputStream and FileOutputStream
+
+
+
+
+// Showing the use of these two classes to copy an input file into an output file
+
+
+// CHARACTER STREAMS
+// Byte streams are used to perform input and output of 8-bit bytes; whereas Character streams are used
+// to perform input and output for 16-bit unicode. To use the character stream classes, you have to import
+// the java.io package in your Java program. The two main classes of the character stream are Reader
+// and Writer. These classes support the Unicode character set, which is a 16 bit character set designed to
+// support world’s major languages such as Latin and Russian.
+// FileReader and FileWriter are frequently used classes to handle character streams. FileReader allows
+// reading two bytes at a time and FileWriter allows writing two bytes at a time
+
+
+
+
+// TEXT FILE VS BINARY FILE
+// As we have discussed earlier, files are used to store information permanently. In the similar way, we store
+// application–specific data in data files. Data files are of the following two types:
+//  Text files: Store information in the form of American Standard Course of Information Interexchange
+// (ASCII) characters. In this type of file, each line is terminated (or delimited) with the help of a special
+// character known as the End of Line (EOL) character. Some internal translations take place whenever
+// an EOL character is encountered in these files.
+//  Binary files: Store information in the binary format (that is, in the form of 0s and 1s). In other
+// words, these files store information in the same format as the information stored in the memory of a
+// computer. Binary files do not have delimiters; therefore, no translations take place in these files. This
+// makes read operations in binary files faster as compared to text files. In addition, it is easier to read
+// data from and write data to binary files than in text files. A binary file is considered the best medium
+// to store any information in a computer till the time it isread by a program or moved elsewhere.
+
+
+
+
+
+// RANDOM ACCESS FILES
+// Using the RandomAccessFile class, you can move around in a file using the seek() method. The seek()
+// method is used to set the current position of the file pointer within the file. That’s what random
+// access is all about—being able to move around in a file at random
+// RandomAccessFile is not the child class of InputStream or OutputStream; instead, it encapsulates a 
+// random-access file. It also implements the Closeable interface. RandomAccessFile supports positioning
+// requests, i.e., you can position the file pointer within the file.
+// With random access comes the type of access:
+//  r: File is read and not written.
+//  rw: File is opened in the read-write mode.
+//  rws: File is opened for read-write operation and every change to the content/metadata needs to be
+// written synchronously to the underlying storage device.
+//  rwd: File is opened for read-write operation and every change to the content needs to be written
+// synchronously to the underlying storage device.
+// The RandomAccessFile class provides the following methods to control the file pointer in the files:
+//  write(): This method allows you to write the specified byte to thisfile
+//  read(): This method allows you to read a byte of data from this file.
+//  close(): This method is used to close thisrandom accessfile stream and release any system resources
+// linked with the stream.
+//  length(): This method is used to return the length of this file
+//  seek(long pos): This method is used to move the file pointer to a specified position in the file.
+//  skipBytes(int n): This method is used to move the file pointer advance n bytes from its current
+// position.
+//  getFilePointer(): This method is used to return the current position of the file pointer.
+
+
+// Consider the following code snippet in which you can read byte array from a file using the
+// RandomAccessFile class in java:
+
+
+
+
+
+// SERIALIZATION AND DESERIALIZATION
+// Serialization is the process of writing objects to a stream and reading them from the stream. This is
+// particularly useful when you want to save the state of your program to a persistent storage area, such as
+// a file. Later on, you may restore these objects by the process of deserialization. To be serialized, your 
+// objects must implement the Serializable interface.
+// This interface has no fields, constructors, or methods—it just shows that an object is serializable. To work
+// with serializable objects, you use the ObjectInputStream and ObjectOutputStream classes, which are
+// derived from InputStream and OutputStream respectively.
+
+
+
+// Method Does this
+// int available() It gets the number of bytes that can be read.
+// void close() It closes the input stream.
+// int read() It reads a byte of data.
+// int read(byte[] b, int off, int len) It readsinto an array of bytes.
+// boolean readBoolean() It reads in a Boolean.
+// byte readByte() It reads an 8-bit byte.
+// char readChar() It reads a 16-bit char.
+// Method Does this
+// String readLine() It is deprecated and it uses a buffered stream instead.
+// Object readObject() It reads an object from the ObjectInputStream.
+// Table 11 shows commonly used methods of the ObjectOutputStream classes:
+// Table 11: Methods of the ObjectOutputStream Class
+// Method Does this
+// void close() It closes the stream.
+// void flush() It flushes the stream.
+// void reset() It disregards the state of any objects already written to the stream.
+// void writeObject(Object obj) It writes the given object to the ObjectOutputStream.
+
+
+
+// Here’s an example showing how serialization works. In this case, we create a new serializable class
+// named NewString (file named as NewString.java). This class has a constructor that takes a string and
+// one method toString(), that returns that string (note that we implement the Serializable interface here)
+// After creating a new object of the NewString class containing the text “Have a good day!”, we use a
+// FileOutputStream stream as encapsulated by an ObjectOutputStream stream to write that object out to
+// a file—serialized.dat. Next, we use a FileInputStream stream encapsulated in an ObjectInputStream
+// stream to read that object back from the file and display its text.
+
+
+
+// shows the code of working of serialization:
+
+
+
+
