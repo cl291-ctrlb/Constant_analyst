@@ -724,3 +724,21 @@ public class BufferedReadWriteExample {
         }
     }
 }
+
+
+// Method	Return Type	Description
+// format(Locale l, String format, Object... args)	PrintWriter	Writes a formatted string using locale, format string, and arguments.
+// format(String format, Object... args)	PrintWriter	Writes a formatted string using the specified format string and arguments.
+// print(boolean b)	void	Prints a boolean value.
+// print(char c)	void	Prints a character.
+// print(char[] s)	void	Prints an array of characters.
+// print(float f)	void	Prints a floating-point number.
+// print(int i)	void	Prints an integer.
+// print(String s)	void	Prints a string.
+// printf(Locale l, String format, Object... args)	PrintWriter	Writes a formatted string using locale, format string, and arguments.
+// printf(String format, Object... args)	PrintWriter	Writes a formatted string using format string and arguments.
+// println()	void	Terminates the current line after writing the line separator.
+// println(char[] x)	void	Prints an array of characters and terminates the line.
+// println(String x)	void	Prints a string and terminates the line.
+// write(char[] buf)	void	Writes an array of characters.
+// write(char[] buf, int off, int len)	void	Writes a portion of an array of characters.
