@@ -121,3 +121,48 @@ public class FileCreateCheck{
         }
     }
 }
+
+// What happens in the first and second execution?
+// 📌 First Execution
+// exists() → returns false (file not found).
+
+// createNewFile() → creates the file and returns true.
+
+// Now the file exists on disk.
+
+// 📌 Second Execution
+// exists() → returns true (file already exists).
+
+// createNewFile() → returns false (won’t create again).
+
+// File is already on the disk.
+import java.io.File;
+import java.io.IOException;
+
+public class FileCreateCheck {
+    public static void main(String[] args) throws IOException { // Add 'throws IOException'
+        // Step 1: Create a File object (this does not create the actual file yet)
+        File file = new File("Myfile.txt");
+
+        // Step 2: Check if the file exists before creating
+        if (file.exists()) {
+            System.out.println("File exists.");
+        } else {
+            System.out.println("File does not exist.");
+        }
+
+        // Step 3: Try to create the file
+        if (file.createNewFile()) {
+            System.out.println("File created successfully.");
+        } else {
+            System.out.println("File was not created (it already exists).");
+        }
+
+        // Step 4: Check again whether the file exists after the create attempt
+        if (file.exists()) {
+            System.out.println("File exists after createNewFile() attempt.");
+        } else {
+            System.out.println("File still does not exist.");
+        }
+    }
+}
