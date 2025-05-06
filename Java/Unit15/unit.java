@@ -188,11 +188,6 @@ public class FileCreateCheck {
         }
           // Final Step: Confirm the directory exists
           if(directory.exists()){
-            System.out.println("d present now");
-          }
-    }}
-
-// Concept Summary (Simple Words):
 // Java's File class has two useful methods:
 
 // renameTo(File dest): Renames the current file to a new name (or moves it).
@@ -206,7 +201,12 @@ import java.io.IOException;
 public class FileCreateCheck {
     public static void main(String[] args) throws IOException {
         // Step 1: Create a file named "old_file.txt"
-        File oldFile = new File("old_file.txt");
+        File oldFile = new File("o
+            System.out.println("d present now");
+          }
+    }}
+
+// Concept Summary (Simple Words):ld_file.txt");
 
         if (!oldFile.exists()) {
             oldFile.createNewFile(); // Create file only if it doesn't exist
@@ -662,3 +662,10 @@ public class BufferedReadWriteExample {
         }
     }
 }
+
+
+// Method	Return Type	Description
+// readLine()	String	Reads a line of text.
+// skip(long n)	long	Skips the specified number of characters.
+// read(char[] cbuf, int off, int len)	int	Reads characters into a portion of a character array.
+// read()	int	Reads a single character.
