@@ -772,3 +772,40 @@ public class BufferedReadWriteExample {
         }
     }
 }
+
+
+// Consider the following code snippet in which I/O classes are combined: (already done )
+// The Console class in Java is used to interact with the user in a simple text-based console application. It belongs to the java.io package and provides methods to read from and write to the console. The console refers to the physical device with a keyboard and a screen, like your personal computer's command line interface.
+// Key Points:
+// System.console(): This method returns a Console object that is linked to the current JVM. If there is no console available (like in certain IDEs or environments), it may return null. So, you should check if the returned console is valid.
+// Echoed Input: Data that is visible as you type it, such as regular input when you press keys (like typing a name).
+// Non-Echoed Input: Data that is hidden as you type, such as passwords or sensitive information. This input does not appear on the screen, providing a layer of privacy.
+import java.io.Console;
+
+public class BufferedReadWriteExample {
+    public static void main(String[] args) {
+        // Step 1: Get the console object associated with the current JVM
+        Console console = System.console();
+        
+        // Step 2: Check if the console is available
+        if (console == null) {
+            System.out.println("No console available");
+            return;  // Exit the program if console is not available (common in IDEs)
+        }
+
+        // Step 3: Reading a normal input (echoed input - visible text)
+        String name = console.readLine("Enter your name: ");  // Prompt for user's name
+        System.out.println("Hello " + name);  // Print the entered name
+        
+        // Step 4: Reading a password (non-echoed input - hidden text)
+        char[] passwordArray = console.readPassword("Enter your password: ");  // Prompt for user's password
+        System.out.println("Password entered.");  // Just confirm password was entered (password is hidden)
+
+        // Optional: Printing the password for verification (Avoid doing this in a real application)
+        // It is important not to print passwords in real-world applications.
+        // System.out.println("Password: " + new String(passwordArray));
+    }
+}
+
+// When prompted for the name, it will display the name entered.
+// When prompted for the password, the input will be hidden (non-echoed).
