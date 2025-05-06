@@ -388,3 +388,50 @@ public class AppendFileExample {
         }
     }
 }
+
+
+// Writing Character Data in a Text File using the FileWriter Class
+// import java.io.FileWriter;
+// import java.io.IOException;
+
+// public class AppendFileExample {
+//     public static void main(String[] args) {
+//         try {
+//             // Step 1: Create a FileWriter object for the file "output.txt"
+//             FileWriter writer = new FileWriter("output.txt");  // overwrites existing content
+
+//             // Step 2: Write character data to the file
+//             writer.write("Hello, this is sample text.\n");
+//             writer.write("Writing character data using FileWriter.\n");
+
+//             // Step 3: Close the writer to save and free resources
+//             writer.close();
+//             System.out.println("Data written successfully to output.txt");
+//         } catch (IOException e) {
+//             e.printStackTrace();
+//         }
+//     }
+// }
+//If You Want to Append Instead:
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class AppendFileExample {
+    public static void main(String[] args) {
+        try {
+            // Step 1: Create a FileWriter object for the file "output.txt"
+            FileWriter writer = new FileWriter("output.txt", true);  // true enables append mode
+
+
+            // Step 2: Write character data to the file
+            writer.write("Hello, this is sample text.\n");
+            writer.write("Writing character data using FileWriter.\n");
+
+            // Step 3: Close the writer to save and free resources
+            writer.close();
+            System.out.println("Data written successfully to output.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
