@@ -37,3 +37,27 @@ public class SimpleIOExample{
             System.out.println("File says:"+line);
             reader.close();
     }}
+
+
+// Java I/O Classes – Reader and Writer
+// What are they?
+// Reader and Writer are two abstract classes in Java used for character-based input and output.
+// They deal with text data (not binary).
+// Belong to the java.io package.
+import java.io.*;
+public class ReaderWriterExample{
+    public static void main(String[]args) throws IOException{
+        // writing characters to a file
+        Writer writer = new FileWriter("sample.txt");
+        writer.write("nice my fremd ");
+        writer.close();
+
+        //Reading characters from a file
+        Reader reader = new FileReader("sample.txt");
+        int data ;
+        while ((data = reader.read())!=-1){
+            System.out.print((char)data);
+        }
+        reader.close();
+    }
+}
