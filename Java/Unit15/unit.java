@@ -548,3 +548,66 @@ public class FileReaderExample {
         }
     }
 }
+
+
+//The BufferedWriter class in Java is used to write characters to a file or an output stream in an efficient manner. It buffers the output, meaning it accumulates characters in an internal buffer before writing them to the destination, which makes it faster than directly writing to a file or output stream character by character.
+// BufferedWriter(Writer out): Creates a buffered character-output stream using a
+// default-sized output buffer. The following code snippet shows an example of this constructor:
+// import java.io.BufferedWriter;
+// import java.io.FileWriter;
+// import java.io.IOException;
+
+// public class BufferedWriterExample {
+//     public static void main(String[] args) {
+//         try {
+//             // Create a FileWriter object for the file "output.txt"
+//             FileWriter fileWriter = new FileWriter("output.txt");
+            
+//             // Create a BufferedWriter object using the FileWriter
+//             BufferedWriter writer = new BufferedWriter(fileWriter);
+            
+//             // Write some data to the file
+//             writer.write("Hello, this is a line of text.");
+//             writer.newLine(); // Adds a new line
+//             writer.write("This is another line.");
+            
+//             // Close the writer to save and free resources
+//             writer.close();
+            
+//             System.out.println("Data written to the file successfully using BufferedWriter.");
+//         } catch (IOException e) {
+//             e.printStackTrace();
+//         }
+//     }
+// }
+
+//BufferedWriter(Writer out, int sz): Creates a new buffered character-output stream by
+// specifying a user-defined size for the output buffer. The following code snippet shows an
+// example of this constructor :
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class BufferedWriterExample {
+    public static void main(String[] args) {
+        try {
+            // Create a FileWriter object for the file "output.txt"
+            FileWriter fileWriter = new FileWriter("output.txt");
+            
+            // Create a BufferedWriter object using the FileWriter
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+            
+            // Write some data to the file
+            writer.write("Hello, this is a line of text.");
+            writer.newLine(); // Adds a new line
+            writer.write("This is another line.");
+            
+            // Close the writer to save and free resources
+            writer.close();
+            
+            System.out.println("Data written to the file successfully using BufferedWriter.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
