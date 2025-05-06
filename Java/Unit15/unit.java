@@ -61,3 +61,40 @@ public class ReaderWriterExample{
         reader.close();
     }
 }
+
+
+// The File class in Java allows you to perform operations on files and directories, such as creating, deleting, and checking if a file exists. The File class does not read or write data from files; it only handles the file metadata (like name, location, and existence).
+// Key Methods in the File Class:
+// createNewFile():
+// Creates a new, empty file if it doesn’t already exist.
+// Returns true if the file is created successfully, otherwise false.exists():
+
+// Checks if the file or directory exists.
+
+// Returns true if the file exists, otherwise false.
+import java.io.*;
+public class FileClassExample {
+    public static void main(String[] args){
+        // create  a file object to represent "my file.txt"
+        File file = new File("MyFile.txt");
+        try{
+            // check if file exists
+            if (file.exists()){
+                System.out.println("file exists");
+            }else{
+                System.out.println("File not exists");
+                // create file if not exist
+                if(file.createNewFile()){
+                    System.out.println("File created succesfully");
+                }else{
+                    System.out.println("Fil already there");
+                }
+            }
+        } catch (IOException e){
+            System.out.println("an erro occured"+e.getMessage());
+        }
+    }
+
+
+    
+}
