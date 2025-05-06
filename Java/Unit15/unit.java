@@ -166,3 +166,28 @@ public class FileCreateCheck {
         }
     }
 }
+
+// Creating a directory is like creating a file — you first create a File object.
+
+// Then, you call the .mkdir() method to actually create the directory on the disk.
+
+// It returns true if the directory is successfully created, and false if it already exists or if there's an error (like no permission or invalid path).
+import java.io.File;
+public class FileCreateCheck {
+    public static void main(String[] args){
+        // Step 1: Create a File object with directory name
+        File directory =new File("MyDirectory");
+        // Step 2: Check if it already exists
+        if(directory.exists()){
+            System.out.println("exists ");
+        }else{
+            // Try to create the directory
+            if(directory.mkdir()){
+                System.out.println("could not created");
+            }
+        }
+          // Final Step: Confirm the directory exists
+          if(directory.exists()){
+            System.out.println("d present now");
+          }
+    }}
