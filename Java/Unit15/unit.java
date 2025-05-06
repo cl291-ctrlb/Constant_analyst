@@ -669,3 +669,58 @@ public class BufferedReadWriteExample {
 // skip(long n)	long	Skips the specified number of characters.
 // read(char[] cbuf, int off, int len)	int	Reads characters into a portion of a character array.
 // read()	int	Reads a single character.
+
+// BufferedWriter and BufferedReader in Java (Summary):
+// BufferedWriter is used to write text to a file efficiently.
+
+// BufferedReader is used to read text from a file efficiently.
+
+// Both use internal buffers for faster performance.
+
+// BufferedReader.readLine() reads one full line at a time.
+
+// BufferedWriter.write() writes strings or characters to the file.
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class BufferedReadWriteExample {
+    public static void main(String[] args) {
+        // === Writing data to a file ===
+        try {
+            // Step 1: Create a BufferedWriter to write to "input.txt"
+            BufferedWriter writer = new BufferedWriter(new FileWriter("input.txt"));
+
+            // Step 2: Write multiple lines to the file
+            writer.write("Hello, this is the first line.");
+            writer.newLine(); // Writes a newline character
+            writer.write("This is the second line using BufferedWriter.");
+
+            // Step 3: Close the writer
+            writer.close();
+            System.out.println("File written successfully using BufferedWriter.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // === Reading data from the same file ===
+        try {
+            // Step 4: Create a BufferedReader to read from "input.txt"
+            BufferedReader reader = new BufferedReader(new FileReader("input.txt"));
+
+            // Step 5: Read and print lines until end of file
+            String line;
+            System.out.println("\nReading file content line by line:");
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            // Step 6: Close the reader
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
