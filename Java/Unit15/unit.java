@@ -742,3 +742,33 @@ public class BufferedReadWriteExample {
 // println(String x)	void	Prints a string and terminates the line.
 // write(char[] buf)	void	Writes an array of characters.
 // write(char[] buf, int off, int len)	void	Writes a portion of an array of characters.
+
+
+// In Java, I/O classes are usually used in combination. Combining I/O classes is also known as wrapping
+// or sometimes chaining
+import java.io.*;
+
+public class BufferedReadWriteExample {
+    public static void main(String[] args) {
+        try {
+            // ✅ Chaining BufferedWriter with FileWriter
+            BufferedWriter writer = new BufferedWriter(new FileWriter("wrapped.txt"));
+            writer.write("This is efficient and flexible.");
+            writer.newLine(); // Adds a line break
+            writer.write("BufferedWriter provides faster writing.");
+            writer.close(); // Always close to flush data
+            System.out.println("File written successfully using BufferedWriter.");
+
+            // ✅ Chaining BufferedReader with FileReader
+            BufferedReader reader = new BufferedReader(new FileReader("wrapped.txt"));
+            String line;
+            System.out.println("\nReading from file:");
+            while ((line = reader.readLine()) != null) { // Correct method: readLine()
+                System.out.println(line);
+            }
+            reader.close(); // Close to release system resources
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle file I/O exceptions
+        }
+    }
+}
