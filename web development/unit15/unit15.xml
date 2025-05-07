@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+
+  <!-- Summary: Displaying Raw XML in a Browser
+  Browsers like Chrome or Firefox can directly display XML files.
+  XML elements are shown in a tree-like structure with expand/collapse signs:
+  ➕ Plus (+) sign: Expands the XML element to show child elements.
+  ➖ Minus (-) sign: Collapses the element to hide its child nodes.
+  This helps in navigating and reading large XML documents easily. -->
+
+  <book>
+    <title>Introduction to XML</title>
+    <author>John Smith</author>
+    <year>2021</year>
+  </book>
+
+  <book>
+    <title>Advanced XML</title>
+    <author>Jane Doe</author>
+    <year>2023</year>
+  </book>
+
+  <!-- Sample invalid data for testing (commented out):
+  <book>
+    <title> introduction to xml</title>
+    <author>john smith</author>
+    <year>292049</year>
+  </book>
+  <book>
+    <title> advanced xml </title>
+    <author>jane doe</author>
+    <year>2049</year>
+  </book>
+  -->
+
+</books>

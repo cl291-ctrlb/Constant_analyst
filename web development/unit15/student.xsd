@@ -1,0 +1,31 @@
+<!-- XML Schema (XSD) is like a set of rules that describes what an XML file should look like — what elements it can have, what attributes, and what type of data they can hold.
+
+It helps in validating XML files, just like a database schema defines how data is organized in a database.
+
+A file that follows XML rules is called Well-Formed.
+
+A file that follows both XML rules and the schema (XSD or DTD) is called Valid.
+
+✅ Well-Formed XML Rules
+Must have at least one element
+
+Must have a root element (only one)
+
+Tags must open and close correctly
+
+Tags are case-sensitive (e.g., <Name> ≠ <name>)
+
+Attribute values must be in double quotes -->
+
+<!-- file: student.xsd -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="student">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:string"/>
+        <xs:element name="age" type="xs:integer"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
