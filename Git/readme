@@ -1,1 +1,33 @@
-Git references 
+# 🔁 Git & GitHub References
+
+This folder contains **Git tutorials**, **command references**, and essential notes to help manage version control and collaborate efficiently on projects using Git and GitHub.
+
+---
+
+### 📌 What's Inside
+- ✅ **Tutorial Notes**: Key Git concepts explained with examples
+- 💻 **Command Cheat Sheet**: Commonly used Git commands for daily work
+- 🌐 **GitHub Workflow**: How to clone, push, pull, create branches, and raise pull requests
+
+---
+
+### 🛠️ Key Topics Covered
+- Initializing a Git repository: `git init`  
+- Staging and committing changes: `git add`, `git commit`  
+- Checking status and history: `git status`, `git log`  
+- Branching and merging: `git branch`, `git checkout`, `git merge`  
+- Working with remotes: `git remote`, `git push`, `git pull`, `git fetch`  
+- Resolving merge conflicts  
+- Best practices for Git commit messages  
+- Working with GitHub: fork, clone, issues, pull requests
+
+---
+
+### 📁 Folder Structure
+- `/CheatSheets`: Quick reference PDFs or markdown files  
+- `/Tutorials`: Step-by-step notes or markdowns on how to use Git & GitHub  
+- `/Examples`: Sample `.git` usage in small projects
+
+---
+
+🔁 This folder will be updated with more advanced Git workflows and real-world usage patterns. Stay connected!
